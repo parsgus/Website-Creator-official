@@ -17,7 +17,7 @@
         }
 
         body {
-            background-color: #020617;
+            background-color: #000000;
             color: #ffffff;
             display: flex;
             justify-content: center;
@@ -32,7 +32,7 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            background: #020617;
+            background: #000000;
             overflow-x: hidden;
             box-shadow: 0 0 25px rgba(0,0,0,0.9);
         }
@@ -45,6 +45,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            background-color: #020617;
         }
 
         /* BACKGROUND VIDEO BERLAPIS */
@@ -74,7 +75,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 55%;
+            height: 60%;
             object-fit: cover;
             -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
             mask-image: linear-gradient(to top, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
@@ -97,6 +98,18 @@
             mix-blend-mode: screen;
         }
 
+        /* OVERLAY FADE KE HITAM DI BAGIAN BAWAH HERO (MENGHILANGKAN GARIS POTONG) */
+        .hero-bottom-fade {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 60%, #000000 100%);
+            z-index: 3;
+            pointer-events: none;
+        }
+
         /* KONTEN HERO */
         .content-container {
             position: relative;
@@ -105,7 +118,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 20px 50px 20px;
+            padding: 40px 20px 60px 20px;
         }
 
         .glass-card {
@@ -239,23 +252,23 @@
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
         }
 
-        /* ================= SEKSI 2: TRANSISI HITAM & LATAR UNGU ================= */
+        /* ================= SEKSI 2: TRANSISI HITAM MULUS KE UNGU ================= */
         .purple-section {
             position: relative;
             width: 100%;
             min-height: 100vh;
-            /* Latar Belakang Gradasi: Hitam Polos Atas -> Ungu Pekat -> Ungu Cerah */
+            /* Latar Belakang Gradasi: Murni Hitam -> Ungu Pekat -> Ungu Cerah */
             background: linear-gradient(to bottom, 
                 #000000 0%, 
-                #000000 18%, 
-                #2d0036 35%, 
-                #7b0091 60%, 
-                #a800c7 85%,
+                #000000 25%, 
+                #2d0036 45%, 
+                #7b0091 68%, 
+                #a800c7 88%,
                 #b000d1 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 120px 20px 80px 20px; /* Padding atas besar untuk area transisi hitam polos */
+            padding: 100px 20px 80px 20px;
             z-index: 5;
         }
 
@@ -413,6 +426,9 @@
 
             <div class="central-blur-blob"></div>
 
+            <!-- OVERLAY UNTUK MENUTUP GARIS POTONG BIRU DENGAN GRADASI HITAM HALUS -->
+            <div class="hero-bottom-fade"></div>
+
             <svg class="network-graphic" viewBox="0 0 100 160" fill="none" stroke="#000000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="42" y1="5" x2="33" y2="30" />
                 <line x1="33" y1="30" x2="16" y2="44" />
@@ -458,7 +474,7 @@
             </div>
         </section>
 
-        <!-- SEKSI 2: TRANSISI HITAM POLOS KE UNGU (DENGAN TAMPILAN PERTANYAAN & BALON KATA) -->
+        <!-- SEKSI 2: TRANSISI HITAM MULUS KE UNGU (DENGAN TAMPILAN PERTANYAAN & BALON KATA) -->
         <section class="purple-section">
             
             <!-- KARTU PERTANYAAN -->
@@ -543,5 +559,4 @@
         });
     </script>
 </body>
-    </html>
-                                                         
+</html>

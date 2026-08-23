@@ -12,6 +12,10 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: #020617;
             color: #ffffff;
@@ -33,7 +37,17 @@
             box-shadow: 0 0 25px rgba(0,0,0,0.9);
         }
 
-        /* BACKGROUND VIDEO */
+        /* ================= SEKSI 1: HERO (UTAMA) ================= */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* BACKGROUND VIDEO BERLAPIS */
         .video-bg-layer {
             position: absolute;
             top: 0;
@@ -66,7 +80,7 @@
             mask-image: linear-gradient(to top, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
         }
 
-        /* ELEMEN BULAT BIRU CERAH DENGAN GAUSSIAN BLUR DI TENGAH */
+        /* ELEMEN BULAT BLUR BIRU CERAH DI TENGAH */
         .central-blur-blob {
             position: absolute;
             top: 48%;
@@ -83,7 +97,7 @@
             mix-blend-mode: screen;
         }
 
-        /* KONTEN UTAMA */
+        /* KONTEN HERO */
         .content-container {
             position: relative;
             z-index: 4;
@@ -94,17 +108,14 @@
             padding: 40px 20px 50px 20px;
         }
 
-        /* LIQUID GLASS CARD (BENING & KRISTAL) */
         .glass-card {
             width: 88%;
             padding: 32px 20px;
             text-align: center;
             border-radius: 32px;
-            
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(2.5px) contrast(110%) brightness(108%);
             -webkit-backdrop-filter: blur(2.5px) contrast(110%) brightness(108%);
-            
             border: 1.5px solid rgba(255, 255, 255, 0.45);
             box-shadow: 
                 0 20px 40px rgba(0, 0, 0, 0.35),
@@ -130,7 +141,6 @@
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9), 0 0 8px rgba(34, 197, 94, 0.5);
         }
 
-        /* FOTO PROFIL DENGAN GLOW BIRU ELEKTRIK */
         .profile-avatar-wrapper {
             position: relative;
             margin: 45px 0 35px 0;
@@ -163,7 +173,6 @@
             display: block;
         }
 
-        /* GRAFIK JARINGAN HITAM */
         .network-graphic {
             position: absolute;
             top: 54%;
@@ -229,86 +238,269 @@
             fill: #ffffff;
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
         }
+
+        /* ================= SEKSI 2: TRANSISI HITAM & LATAR UNGU ================= */
+        .purple-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            /* Latar Belakang Gradasi: Hitam Polos Atas -> Ungu Pekat -> Ungu Cerah */
+            background: linear-gradient(to bottom, 
+                #000000 0%, 
+                #000000 18%, 
+                #2d0036 35%, 
+                #7b0091 60%, 
+                #a800c7 85%,
+                #b000d1 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 120px 20px 80px 20px; /* Padding atas besar untuk area transisi hitam polos */
+            z-index: 5;
+        }
+
+        /* KARTU PERTANYAAN (GLASS PURPLE CARD) */
+        .question-card {
+            width: 90%;
+            padding: 24px 20px;
+            border-radius: 28px;
+            background: rgba(180, 50, 220, 0.35);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5),
+                        inset 0 2px 4px rgba(255, 255, 255, 0.6);
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .question-text {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.35;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+        }
+
+        /* CONTAINER AVATAR & THOUGHT BUBBLE */
+        .thought-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            padding: 10px 5px;
+        }
+
+        /* PROFIL DENGAN BLUR UNGU DIBELAKANGNYA */
+        .purple-avatar-wrapper {
+            position: relative;
+            margin-left: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .purple-avatar-wrapper::before {
+            content: '';
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(235, 80, 255, 0.95) 0%, rgba(180, 0, 220, 0.6) 60%, transparent 100%);
+            filter: blur(22px);
+            -webkit-filter: blur(22px);
+            z-index: 0;
+        }
+
+        .purple-avatar {
+            position: relative;
+            z-index: 1;
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            background-color: #facc15;
+            border: 3.5px solid #ef4444;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            display: block;
+        }
+
+        /* BINTIK/DOT BALON KATA (THOUGHT DOTS) */
+        .thought-dots {
+            position: absolute;
+            top: 75px;
+            left: 110px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 3;
+        }
+
+        .dot-large {
+            width: 22px;
+            height: 22px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .dot-small {
+            width: 14px;
+            height: 14px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            margin-left: 18px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* BALON KATA PUTIH (THOUGHT BUBBLE) */
+        .thought-bubble {
+            align-self: flex-end;
+            margin-top: 15px;
+            margin-right: 5px;
+            width: 82%;
+            background-color: #ffffff;
+            border-radius: 60px;
+            padding: 30px 24px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            z-index: 2;
+            text-align: center;
+        }
+
+        .thought-text {
+            color: #000000;
+            font-size: 1.25rem;
+            font-weight: 800;
+            line-height: 1.35;
+            font-family: Georgia, serif;
+        }
+
+        /* ANIMASI SCROLL REVEAL (GAUSSIAN BLUR + FADE IN) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            filter: blur(12px);
+            -webkit-filter: blur(12px);
+            transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: opacity, transform, filter;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+            -webkit-filter: blur(0);
+        }
     </style>
 </head>
 <body>
 
     <div class="wrapper">
         
-        <!-- VIDEO BACKGROUND -->
-        <div class="video-bg-layer">
-            <video class="video-hijau" autoplay loop muted playsinline webkit-playsinline preload="auto">
-                <source src="hijau.mp4" type="video/mp4">
-            </video>
-            
-            <video class="video-biru" autoplay loop muted playsinline webkit-playsinline preload="auto">
-                <source src="biru.mp4" type="video/mp4">
-            </video>
-        </div>
-
-        <!-- ELEMEN BULAT GAUSSIAN BLUR BIRU CERAH DI TENGAH -->
-        <div class="central-blur-blob"></div>
-
-        <!-- HIASAN JARINGAN -->
-        <svg class="network-graphic" viewBox="0 0 100 160" fill="none" stroke="#000000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="42" y1="5" x2="33" y2="30" />
-            <line x1="33" y1="30" x2="16" y2="44" />
-            <line x1="33" y1="30" x2="44" y2="57" />
-            <line x1="44" y1="57" x2="61" y2="38" />
-            <line x1="44" y1="57" x2="58" y2="80" />
-            <line x1="58" y1="80" x2="54" y2="114" />
-
-            <circle cx="42" cy="5" r="4.5" fill="#000000" stroke="none" />
-            <circle cx="16" cy="44" r="5" fill="#000000" stroke="none" />
-            <circle cx="33" cy="30" r="5" fill="#000000" stroke="none" />
-            <circle cx="44" cy="57" r="5" fill="#000000" stroke="none" />
-            <circle cx="61" cy="38" r="5" fill="#000000" stroke="none" />
-            <circle cx="58" cy="80" r="5" fill="#000000" stroke="none" />
-            <circle cx="54" cy="114" r="5" fill="#000000" stroke="none" />
-        </svg>
-
-        <!-- KONTEN -->
-        <div class="content-container">
-            
-            <div class="glass-card">
-                <h1 class="title-main">ΣΛ Creator</h1>
-                <div class="title-sub">Official website</div>
+        <!-- SEKSI 1: HERO UTAMA -->
+        <section class="hero-section">
+            <div class="video-bg-layer">
+                <video class="video-hijau" autoplay loop muted playsinline webkit-playsinline preload="auto">
+                    <source src="hijau.mp4" type="video/mp4">
+                </video>
+                
+                <video class="video-biru" autoplay loop muted playsinline webkit-playsinline preload="auto">
+                    <source src="biru.mp4" type="video/mp4">
+                </video>
             </div>
 
-            <div class="profile-avatar-wrapper">
-                <img src="pp.png" alt="Profile" class="profile-avatar">
-            </div>
+            <div class="central-blur-blob"></div>
 
-            <div class="glass-card">
-                <h2 class="user-name">Fuu</h2>
-                <p class="user-role">Founder of</p>
-                <h3 class="user-community">ΣΛ Creator</h3>
+            <svg class="network-graphic" viewBox="0 0 100 160" fill="none" stroke="#000000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="42" y1="5" x2="33" y2="30" />
+                <line x1="33" y1="30" x2="16" y2="44" />
+                <line x1="33" y1="30" x2="44" y2="57" />
+                <line x1="44" y1="57" x2="61" y2="38" />
+                <line x1="44" y1="57" x2="58" y2="80" />
+                <line x1="58" y1="80" x2="54" y2="114" />
 
-                <div class="social-container">
-                    <a href="https://www.facebook.com/share/1CL3FGXmyn/" target="_blank" class="social-btn" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    </a>
+                <circle cx="42" cy="5" r="4.5" fill="#000000" stroke="none" />
+                <circle cx="16" cy="44" r="5" fill="#000000" stroke="none" />
+                <circle cx="33" cy="30" r="5" fill="#000000" stroke="none" />
+                <circle cx="44" cy="57" r="5" fill="#000000" stroke="none" />
+                <circle cx="61" cy="38" r="5" fill="#000000" stroke="none" />
+                <circle cx="58" cy="80" r="5" fill="#000000" stroke="none" />
+                <circle cx="54" cy="114" r="5" fill="#000000" stroke="none" />
+            </svg>
 
-                    <a href="https://www.tiktok.com/@fuu.kilakuin?_r=1&_t=ZS-997ALUyszhd" target="_blank" class="social-btn" aria-label="TikTok">
-                        <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.36 1.52-1.38 2.52-.01.97.48 1.93 1.24 2.53.86.68 2 1 3.09.84 1.25-.13 2.39-.88 2.93-2 .35-.7.43-1.5.43-2.28V.02z"/></svg>
-                    </a>
+            <div class="content-container">
+                <div class="glass-card">
+                    <h1 class="title-main">ΣΛ Creator</h1>
+                    <div class="title-sub">Official website</div>
+                </div>
+
+                <div class="profile-avatar-wrapper">
+                    <img src="pp.png" alt="Profile" class="profile-avatar">
+                </div>
+
+                <div class="glass-card">
+                    <h2 class="user-name">Fuu</h2>
+                    <p class="user-role">Founder of</p>
+                    <h3 class="user-community">ΣΛ Creator</h3>
+
+                    <div class="social-container">
+                        <a href="https://www.facebook.com/share/1CL3FGXmyn/" target="_blank" class="social-btn" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+
+                        <a href="https://www.tiktok.com/@fuu.kilakuin?_r=1&_t=ZS-997ALUyszhd" target="_blank" class="social-btn" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.36 1.52-1.38 2.52-.01.97.48 1.93 1.24 2.53.86.68 2 1 3.09.84 1.25-.13 2.39-.88 2.93-2 .35-.7.43-1.5.43-2.28V.02z"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
+        </section>
 
-        </div>
+        <!-- SEKSI 2: TRANSISI HITAM POLOS KE UNGU (DENGAN TAMPILAN PERTANYAAN & BALON KATA) -->
+        <section class="purple-section">
+            
+            <!-- KARTU PERTANYAAN -->
+            <div class="question-card reveal">
+                <p class="question-text">Apasih ΣΛ Creator itu dan apa tujuannya sih?</p>
+            </div>
+
+            <!-- CONTAINER FOTO PROFIL + BALON KATA -->
+            <div class="thought-container reveal">
+                
+                <!-- AVATAR PP.PNG DENGAN GLOW UNGU -->
+                <div class="purple-avatar-wrapper">
+                    <img src="pp.png" alt="Profile" class="purple-avatar">
+                </div>
+
+                <!-- BINTIK-BINTIK BALON KATA -->
+                <div class="thought-dots">
+                    <div class="dot-large"></div>
+                    <div class="dot-small"></div>
+                </div>
+
+                <!-- BALON KATA PUTIH -->
+                <div class="thought-bubble">
+                    <p class="thought-text">"Awalnya buwat komunitas edit biasa eh tau nya banyak yang minat"</p>
+                </div>
+
+            </div>
+
+        </section>
 
     </div>
 
-    <!-- JAVASCRIPT AUTO-PLAY -->
+    <!-- JAVASCRIPT: AUTOPLAY VIDEO & SCROLL REVEAL ANIMATION -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // 1. AUTOPLAY VIDEO HANDLER
             const videos = document.querySelectorAll('video');
 
             function forcePlayVideos() {
                 videos.forEach(video => {
                     video.muted = true;
                     video.defaultMuted = true;
-                    
                     const playPromise = video.play();
                     if (playPromise !== undefined) {
                         playPromise.catch(error => {
@@ -321,24 +513,35 @@
             forcePlayVideos();
 
             const userEvents = ['touchstart', 'touchend', 'click', 'scroll', 'pointerdown'];
-            
             function handleFirstTouch() {
                 forcePlayVideos();
-                userEvents.forEach(evt => {
-                    window.removeEventListener(evt, handleFirstTouch);
-                });
+                userEvents.forEach(evt => window.removeEventListener(evt, handleFirstTouch));
             }
-
-            userEvents.forEach(evt => {
-                window.addEventListener(evt, handleFirstTouch, { passive: true });
-            });
+            userEvents.forEach(evt => window.addEventListener(evt, handleFirstTouch, { passive: true }));
 
             document.addEventListener('visibilitychange', () => {
-                if (document.visibilityState === 'visible') {
-                    forcePlayVideos();
-                }
+                if (document.visibilityState === 'visible') forcePlayVideos();
             });
+
+            // 2. SCROLL REVEAL ANIMATION (INTERSECTION OBSERVER)
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => observer.observe(el));
         });
     </script>
 </body>
-</html>
+    </html>
+                                                         

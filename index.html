@@ -54,7 +54,6 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
-            /* Memastikan video siap ditampilkan */
             display: block;
         }
 
@@ -195,10 +194,10 @@
 
     <div class="wrapper">
         
-        <!-- SECTION ATAS: VIDEO HIJAU -->
+        <!-- SECTION ATAS: VIDEO SAMPEL TES -->
         <div class="section-top">
             <video class="bg-video" autoplay loop muted playsinline webkit-playsinline preload="auto">
-                <source src="Hijau.mp4" type="video/mp4">
+                <source src="https://assets.codepen.io/6093409/river.mp4" type="video/mp4">
             </video>
 
             <div class="glass-card-top">
@@ -211,10 +210,10 @@
             </div>
         </div>
 
-        <!-- SECTION BAWAH: VIDEO BIRU -->
+        <!-- SECTION BAWAH: VIDEO SAMPEL TES -->
         <div class="section-bottom">
             <video class="bg-video" autoplay loop muted playsinline webkit-playsinline preload="auto">
-                <source src="Biru.mp4" type="video/mp4">
+                <source src="https://assets.codepen.io/6093409/river.mp4" type="video/mp4">
             </video>
 
             <div class="glass-card-bottom">
@@ -236,12 +235,11 @@
 
     </div>
 
-    <!-- JAVASCRIPT PAKSA PLAY VIDEO -->
+    <!-- JAVASCRIPT PAKSA PLAY -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const videos = document.querySelectorAll('video');
 
-            // Fungsi untuk memaksa pemutaran semua video
             function forcePlayVideos() {
                 videos.forEach(video => {
                     video.muted = true;
@@ -250,21 +248,18 @@
                     const playPromise = video.play();
                     if (playPromise !== undefined) {
                         playPromise.catch(error => {
-                            console.log("Autoplay di-block oleh HP, menunggu interaksi pengguna.", error);
+                            console.log("Autoplay di-block oleh HP, menunggu interaksi.", error);
                         });
                     }
                 });
             }
 
-            // 1. Coba putar langsung begitu halaman dimuat
             forcePlayVideos();
 
-            // 2. Jika di-block HP, putar otomatis begitu pengguna menyentuh/menggeser layar pertama kali
             const userEvents = ['touchstart', 'touchend', 'click', 'scroll', 'pointerdown'];
             
             function handleFirstTouch() {
                 forcePlayVideos();
-                // Hapus event listener setelah video berhasil jalan
                 userEvents.forEach(evt => {
                     window.removeEventListener(evt, handleFirstTouch);
                 });
@@ -274,7 +269,6 @@
                 window.addEventListener(evt, handleFirstTouch, { passive: true });
             });
 
-            // 3. Putar ulang jika pengguna kembali ke tab web ini
             document.addEventListener('visibilitychange', () => {
                 if (document.visibilityState === 'visible') {
                     forcePlayVideos();
@@ -283,4 +277,5 @@
         });
     </script>
 </body>
-</html>
+    </html>
+    

@@ -38,7 +38,7 @@
             box-shadow: 0 0 25px rgba(0,0,0,0.9);
         }
 
-        /* ================= SEKSI 1: HERO (UTAMA) ================= */
+        /* ================= SEKSI 1: HERO ================= */
         .hero-section {
             position: relative;
             min-height: 100vh;
@@ -47,6 +47,7 @@
             flex-direction: column;
             align-items: center;
             background-color: #000000;
+            padding-bottom: 20px;
         }
 
         /* BACKGROUND VIDEO BERLAPIS */
@@ -76,10 +77,10 @@
             top: 35%;
             left: 0;
             width: 100%;
-            height: 50%;
+            height: 65%;
             object-fit: cover;
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
         }
 
         /* ELEMEN BULAT BLUR BIRU CERAH DI TENGAH */
@@ -107,7 +108,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 20px 40px 20px;
+            padding: 40px 20px 20px 20px;
         }
 
         .glass-card {
@@ -241,28 +242,26 @@
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
         }
 
-        /* ================= SEKSI 2: SEKSI HITAM POLOS REVISI ================= */
+        /* ================= SEKSI 2: SEKSI UNGU DENGAN TRANSISI HALUS ================= */
         .purple-section {
             position: relative;
             width: 100%;
             min-height: 100vh;
-            /* Dibuat 100% Hitam Pekat (#000000) di bagian atas, lalu bertransisi ke ungu saat di-scroll turun */
+            /* Gradasi halus tanpa area hitam panjang */
             background: linear-gradient(to bottom, 
                 #000000 0%, 
-                #000000 40%, 
-                #2d0036 58%, 
-                #7b0091 78%, 
-                #a800c7 92%,
+                #1a0022 20%, 
+                #4a0059 45%, 
+                #83009b 75%, 
                 #b000d1 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 140px 20px 80px 20px; /* Jarak padding atas diperbesar agar area hitam murni terasa pas saat di-scroll */
+            padding: 50px 20px 80px 20px;
             z-index: 5;
-            background-color: #000000;
         }
 
-        /* KARTU PERTANYAAN (GLASS PURPLE CARD) */
+        /* KARTU PERTANYAAN */
         .question-card {
             width: 90%;
             padding: 24px 20px;
@@ -295,7 +294,7 @@
             padding: 10px 5px;
         }
 
-        /* PROFIL DENGAN BLUR UNGU DIBELAKANGNYA */
+        /* PROFIL UNGU GLOW */
         .purple-avatar-wrapper {
             position: relative;
             margin-left: 10px;
@@ -330,7 +329,7 @@
             display: block;
         }
 
-        /* BINTIK/DOT BALON KATA (THOUGHT DOTS) */
+        /* BINTIK BALON KATA */
         .thought-dots {
             position: absolute;
             top: 75px;
@@ -358,7 +357,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
-        /* BALON KATA PUTIH (THOUGHT BUBBLE) */
+        /* BALON KATA PUTIH */
         .thought-bubble {
             align-self: flex-end;
             margin-top: 15px;
@@ -380,13 +379,13 @@
             font-family: Georgia, serif;
         }
 
-        /* ANIMASI SCROLL REVEAL (GAUSSIAN BLUR + FADE IN) */
+        /* ANIMASI SCROLL REVEAL */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            filter: blur(12px);
-            -webkit-filter: blur(12px);
-            transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+            transform: translateY(30px);
+            filter: blur(10px);
+            -webkit-filter: blur(10px);
+            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
             will-change: opacity, transform, filter;
         }
 
@@ -461,7 +460,7 @@
             </div>
         </section>
 
-        <!-- SEKSI 2: SEKSI HITAM POLOS REVISI KANAN BANYAK AREA HITAM LALU TRANSISI KE UNGU -->
+        <!-- SEKSI 2: SEKSI UNGU PAS DI BAWAH KARTU PROFIL -->
         <section class="purple-section">
             
             <!-- KARTU PERTANYAAN -->
@@ -472,18 +471,15 @@
             <!-- CONTAINER FOTO PROFIL + BALON KATA -->
             <div class="thought-container reveal">
                 
-                <!-- AVATAR PP.PNG DENGAN GLOW UNGU -->
                 <div class="purple-avatar-wrapper">
                     <img src="pp.png" alt="Profile" class="purple-avatar">
                 </div>
 
-                <!-- BINTIK-BINTIK BALON KATA -->
                 <div class="thought-dots">
                     <div class="dot-large"></div>
                     <div class="dot-small"></div>
                 </div>
 
-                <!-- BALON KATA PUTIH -->
                 <div class="thought-bubble">
                     <p class="thought-text">"Awalnya buwat komunitas edit biasa eh tau nya banyak yang minat"</p>
                 </div>
@@ -497,7 +493,6 @@
     <!-- JAVASCRIPT: AUTOPLAY VIDEO & SCROLL REVEAL ANIMATION -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. AUTOPLAY VIDEO HANDLER
             const videos = document.querySelectorAll('video');
 
             function forcePlayVideos() {
@@ -507,7 +502,7 @@
                     const playPromise = video.play();
                     if (playPromise !== undefined) {
                         playPromise.catch(error => {
-                            console.log("Autoplay di-block oleh HP, menunggu interaksi.", error);
+                            console.log("Autoplay di-block, menunggu interaksi.", error);
                         });
                     }
                 });
@@ -526,7 +521,6 @@
                 if (document.visibilityState === 'visible') forcePlayVideos();
             });
 
-            // 2. SCROLL REVEAL ANIMATION (INTERSECTION OBSERVER)
             const observerOptions = {
                 root: null,
                 rootMargin: '0px',
@@ -546,5 +540,4 @@
         });
     </script>
 </body>
-    </html>
-    
+</html>

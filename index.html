@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ΣΛ Creator - Website Resmi</title>
+    <style>
+        /* Gaya Dasar */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Bagian Tetap di Atas (Hijau.mp4) */
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 35vh; /* Sesuaikan tinggi */
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        .fixed-header video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Judul Website dengan Glow Biru */
+        .header-text {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 11;
+        }
+
+        .main-title {
+            color: #007BFF;
+            font-size: 3rem;
+            margin: 0;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(0, 128, 128, 0.4),
+                         0 0 20px rgba(0, 128, 128, 0.2);
+        }
+
+        .sub-title {
+            color: #007BFF;
+            font-size: 1.2rem;
+            margin: 5px 0 0;
+            opacity: 0.8;
+            text-shadow: 0 0 5px rgba(0, 128, 128, 0.3);
+        }
+
+        /* Konten Utama (Mulai setelah Header Tetap) */
+        .main-content {
+            position: relative;
+            margin-top: 35vh; /* Sama dengan tinggi header fixed */
+            z-index: 5;
+            min-height: 150vh; /* Memberi ruang untuk scroll */
+        }
+
+        .main-video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Kartu Profil Floating Liquid Glass */
+        .floating-profile-card {
+            position: relative;
+            width: 350px;
+            margin: 0 auto;
+            top: -100px; /* Menjembatani boundary */
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            text-align: center;
+            padding-bottom: 30px;
+        }
+
+        /* Efek Liquid Glass di Kartu */
+        .floating-profile-card::before,
+        .floating-profile-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            z-index: -1;
+        }
+
+        /* Lapisan "Liquid" yang Mengalir */
+        .floating-profile-card::after {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(0,128,128,0.02));
+            background-size: 200% 200%;
+            animation: liquidFlow 6s ease-in-out infinite;
+        }
+
+        @keyframes liquidFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Bagian dalam Kartu Profil */
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            color: #fff;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid red; /* Border merah dari UI */
+            background: yellow; /* Latar belakang kuning dari UI */
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(255,255,255,0.2);
+            object-fit: cover;
+        }
+
+        .profile-info h2 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: #fff;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+            font-size: 1rem;
+            color: #fff;
+        }
+
+        .community-name {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        /* Tombol Media Sosial */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: white; /* Ikon putih di dalam */
+            mask-size: cover;
+            -webkit-mask-size: cover;
+        }
+
+        /* Ikon Media Sosial (f & TikTok) */
+        .facebook-icon {
+            mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M279.1 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26C290.4 6.26 261.2 0 234.3 0 178.6 0 143.2 33.7 143.2 96.1v69.24H64v92.66h79.2V512h92.66V288h79.2z" fill="%23FFFFFF"/></svg>');
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M279.1 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26C290.4 6.26 261.2 0 234.3 0 178.6 0 143.2 33.7 143.2 96.1v69.24H64v92.66h79.2V512h92.66V288h79.2z" fill="%23FFFFFF"/></svg>');
+        }
+
+        .tiktok-icon {
+            mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25v178.72c0 102.33-83.08 185.42-185.42 185.42S-55.61 451.72-55.61 349.38s83.08-185.42 185.42-185.42a184.66 184.66 0 0 1 103.11 31.33V64h122.77c.39 51.68 41.52 93.93 93.93 94.33v51.58z" fill="%23FFFFFF"/></svg>');
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25v178.72c0 102.33-83.08 185.42-185.42 185.42S-55.61 451.72-55.61 349.38s83.08-185.42 185.42-185.42a184.66 184.66 0 0 1 103.11 31.33V64h122.77c.39 51.68 41.52 93.93 93.93 94.33v51.58z" fill="%23FFFFFF"/></svg>');
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Tetap (Latar Dedaunan) -->
+    <div class="fixed-header">
+        <video id="header-video" autoplay loop muted playsinline>
+            <source src="Hijau.mp4" type="video/mp4">
+            Browser Anda tidak mendukung tag video.
+        </video>
+        <div class="header-text">
+            <h1 class="main-title">ΣΛ Creator</h1>
+            <p class="sub-title">Official website</p>
+        </div>
+    </div>
+
+    <!-- Konten Utama (Scrollable, Latar Biru + Jaringan) -->
+    <div class="main-content">
+        <video id="main-video" class="main-video-bg" autoplay loop muted playsinline>
+            <source src="Biru.mp4" type="video/mp4">
+            Browser Anda tidak mendukung tag video.
+        </video>
+
+        <!-- Kartu Profil Floating Liquid Glass -->
+        <div class="floating-profile-card">
+            <div class="profile-container">
+                <img src="pp.png" alt="Foto Profil" class="profile-pic">
+                <div class="profile-info">
+                    <h2>Fuu</h2>
+                    <p>Founder of</p>
+                    <p class="community-name">ΣΛ Creator</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/1CL3FGXmyn/" target="_blank">
+                        <i class="social-icon facebook-icon"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@fuu.kilakuin?_r=1&_t=ZS-997ALUyszhd" target="_blank">
+                        <i class="social-icon tiktok-icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

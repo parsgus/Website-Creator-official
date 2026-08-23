@@ -66,38 +66,38 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 50%;
+            height: 48%;
             object-fit: cover;
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
         }
 
         .video-biru {
             position: absolute;
-            top: 35%;
+            top: 30%;
             left: 0;
             width: 100%;
-            height: 65%;
+            height: 70%;
             object-fit: cover;
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
         }
 
-        /* ELEMEN BULAT BLUR BIRU CERAH DI TENGAH */
+        /* ELEMEN BULAT BLUR BIRU CAHAYA DI BATAS WADAH */
         .central-blur-blob {
             position: absolute;
-            top: 45%;
+            top: 36%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 120vw;
-            height: 300px;
+            width: 320px;
+            height: 320px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.95) 0%, rgba(0, 140, 255, 0.6) 50%, rgba(0, 80, 200, 0) 80%);
-            filter: blur(50px);
-            -webkit-filter: blur(50px);
+            background: radial-gradient(circle, #00d4ff 0%, #0066ff 45%, rgba(0, 102, 255, 0) 70%);
+            filter: blur(35px);
+            -webkit-filter: blur(35px);
             z-index: 2;
             pointer-events: none;
-            mix-blend-mode: screen;
+            opacity: 0.9;
         }
 
         /* KONTEN HERO */
@@ -155,11 +155,11 @@
         .profile-avatar-wrapper::before {
             content: '';
             position: absolute;
-            width: 160px;
-            height: 160px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(0, 212, 255, 0.95) 0%, rgba(0, 119, 182, 0.5) 60%, transparent 100%);
-            filter: blur(20px);
+            filter: blur(18px);
             z-index: 0;
         }
 
@@ -242,12 +242,11 @@
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
         }
 
-        /* ================= SEKSI 2: SEKSI UNGU DENGAN TRANSISI HALUS ================= */
+        /* ================= SEKSI 2: SEKSI UNGU ================= */
         .purple-section {
             position: relative;
             width: 100%;
             min-height: 100vh;
-            /* Gradasi halus tanpa area hitam panjang */
             background: linear-gradient(to bottom, 
                 #000000 0%, 
                 #1a0022 20%, 
@@ -261,7 +260,6 @@
             z-index: 5;
         }
 
-        /* KARTU PERTANYAAN */
         .question-card {
             width: 90%;
             padding: 24px 20px;
@@ -284,7 +282,6 @@
             text-shadow: 0 2px 6px rgba(0,0,0,0.6);
         }
 
-        /* CONTAINER AVATAR & THOUGHT BUBBLE */
         .thought-container {
             width: 100%;
             display: flex;
@@ -294,7 +291,6 @@
             padding: 10px 5px;
         }
 
-        /* PROFIL UNGU GLOW */
         .purple-avatar-wrapper {
             position: relative;
             margin-left: 10px;
@@ -329,7 +325,6 @@
             display: block;
         }
 
-        /* BINTIK BALON KATA */
         .thought-dots {
             position: absolute;
             top: 75px;
@@ -357,7 +352,6 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
         }
 
-        /* BALON KATA PUTIH */
         .thought-bubble {
             align-self: flex-end;
             margin-top: 15px;
@@ -379,7 +373,6 @@
             font-family: Georgia, serif;
         }
 
-        /* ANIMASI SCROLL REVEAL */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -413,6 +406,7 @@
                 </video>
             </div>
 
+            <!-- ELEMEN BULAT BLUR CERAH -->
             <div class="central-blur-blob"></div>
 
             <svg class="network-graphic" viewBox="0 0 100 160" fill="none" stroke="#000000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
@@ -460,17 +454,13 @@
             </div>
         </section>
 
-        <!-- SEKSI 2: SEKSI UNGU PAS DI BAWAH KARTU PROFIL -->
+        <!-- SEKSI 2: SEKSI UNGU -->
         <section class="purple-section">
-            
-            <!-- KARTU PERTANYAAN -->
             <div class="question-card reveal">
                 <p class="question-text">Apasih ΣΛ Creator itu dan apa tujuannya sih?</p>
             </div>
 
-            <!-- CONTAINER FOTO PROFIL + BALON KATA -->
             <div class="thought-container reveal">
-                
                 <div class="purple-avatar-wrapper">
                     <img src="pp.png" alt="Profile" class="purple-avatar">
                 </div>
@@ -483,14 +473,11 @@
                 <div class="thought-bubble">
                     <p class="thought-text">"Awalnya buwat komunitas edit biasa eh tau nya banyak yang minat"</p>
                 </div>
-
             </div>
-
         </section>
 
     </div>
 
-    <!-- JAVASCRIPT: AUTOPLAY VIDEO & SCROLL REVEAL ANIMATION -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const videos = document.querySelectorAll('video');
@@ -540,4 +527,5 @@
         });
     </script>
 </body>
-</html>
+    </html>
+    

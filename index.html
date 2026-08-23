@@ -13,7 +13,7 @@
         }
 
         body {
-            background-color: #030814;
+            background-color: #020b14;
             color: #ffffff;
             display: flex;
             justify-content: center;
@@ -21,7 +21,6 @@
             min-height: 100vh;
         }
 
-        /* WRAPPER DENGAN BASE GRADIENT HIJAU-BIRU SEAMLESS */
         .wrapper {
             width: 100%;
             max-width: 480px;
@@ -29,75 +28,109 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            background: linear-gradient(to bottom, #0f2415 0%, #083050 50%, #023e8a 100%);
+            background: #020b14;
             overflow-x: hidden;
-            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            box-shadow: 0 0 25px rgba(0,0,0,0.9);
         }
 
-        /* BAGIAN ATAS (HIJAU) */
-        .section-top {
-            position: relative;
-            width: 100%;
-            height: 52vh;
-            min-height: 380px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        /* VIDEO HIJAU: MASKING OPACITY DI BAGIAN BAWAH */
-        .section-top .bg-video {
+        /* CONTAINER BACKGROUND VIDEO BERLAPIS */
+        .video-bg-layer {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
             z-index: 1;
-            display: block;
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+            pointer-events: none;
         }
 
-        /* LAPISAN BLUR DI AREA TRANSISI TENGAH */
-        .blend-blur-zone {
+        /* VIDEO HIJAU (ATAS MELEBAR KE TENGAH) */
+        .video-hijau {
             position: absolute;
-            top: 50vh;
+            top: 0;
             left: 0;
             width: 100%;
-            height: 160px;
-            transform: translateY(-50%);
-            z-index: 2;
-            pointer-events: none;
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            background: linear-gradient(to bottom, 
-                rgba(15, 36, 21, 0) 0%, 
-                rgba(8, 48, 80, 0.45) 50%, 
-                rgba(2, 62, 138, 0) 100%);
+            height: 62%;
+            object-fit: cover;
+            -webkit-mask-image: linear-gradient(to bottom, 
+                rgba(0,0,0,1) 0%, 
+                rgba(0,0,0,1) 35%, 
+                rgba(0,0,0,0.6) 65%, 
+                rgba(0,0,0,0.15) 85%, 
+                rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, 
+                rgba(0,0,0,1) 0%, 
+                rgba(0,0,0,1) 35%, 
+                rgba(0,0,0,0.6) 65%, 
+                rgba(0,0,0,0.15) 85%, 
+                rgba(0,0,0,0) 100%);
         }
 
-        /* LIQUID GLASS CARD (BENING & KRISTAL) */
-        .glass-card-top, .glass-card-bottom {
+        /* VIDEO BIRU (BAWAH MELEBAR KE TENGAH) */
+        .video-biru {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 62%;
+            object-fit: cover;
+            -webkit-mask-image: linear-gradient(to top, 
+                rgba(0,0,0,1) 0%, 
+                rgba(0,0,0,1) 40%, 
+                rgba(0,0,0,0.6) 70%, 
+                rgba(0,0,0,0.15) 88%, 
+                rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to top, 
+                rgba(0,0,0,1) 0%, 
+                rgba(0,0,0,1) 40%, 
+                rgba(0,0,0,0.6) 70%, 
+                rgba(0,0,0,0.15) 88%, 
+                rgba(0,0,0,0) 100%);
+        }
+
+        /* LAPISAN BLUR ORGANIK DI AREA PERCAMPURAN TENGAH */
+        .natural-blend-blur {
+            position: absolute;
+            top: 38%;
+            left: 0;
+            width: 100%;
+            height: 24%;
+            z-index: 2;
+            pointer-events: none;
+            backdrop-filter: blur(12px) saturate(120%);
+            -webkit-backdrop-filter: blur(12px) saturate(120%);
+            background: radial-gradient(ellipse at center, rgba(5, 30, 40, 0.35) 0%, rgba(2, 11, 20, 0) 80%);
+        }
+
+        /* KONTEN UTAMA */
+        .content-container {
             position: relative;
-            z-index: 4;
+            z-index: 3;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px 50px 20px;
+        }
+
+        /* LIQUID GLASS CARD ( BENING, TEBAL & JERNIH ) */
+        .glass-card {
             width: 88%;
             padding: 32px 20px;
             text-align: center;
             border-radius: 32px;
             
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(2.5px) contrast(110%) brightness(108%);
-            -webkit-backdrop-filter: blur(2.5px) contrast(110%) brightness(108%);
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(2.5px) contrast(108%) brightness(105%);
+            -webkit-backdrop-filter: blur(2.5px) contrast(108%) brightness(105%);
             
-            border: 1.5px solid rgba(255, 255, 255, 0.45);
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
             box-shadow: 
                 0 20px 40px rgba(0, 0, 0, 0.35),
                 inset 0 2px 3px rgba(255, 255, 255, 0.85),
                 inset 0 -2px 4px rgba(0, 0, 0, 0.5),
-                inset 2px 0 3px rgba(255, 255, 255, 0.4),
-                inset -2px 0 3px rgba(0, 0, 0, 0.3);
+                inset 2px 0 3px rgba(255, 255, 255, 0.35),
+                inset -2px 0 3px rgba(0, 0, 0, 0.25);
         }
 
         .title-main {
@@ -105,7 +138,7 @@
             font-weight: 800;
             color: #ffffff;
             letter-spacing: 1px;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
             margin-bottom: 12px;
         }
 
@@ -116,78 +149,50 @@
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9), 0 0 8px rgba(34, 197, 94, 0.5);
         }
 
-        /* FOTO PROFIL & EFEK GLOW BIRU BLUR */
-        .profile-avatar-container {
-            position: absolute;
-            bottom: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
+        /* FOTO PROFIL DENGAN GLOW ORGANIK */
+        .profile-avatar-wrapper {
+            position: relative;
+            margin: 45px 0 35px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .profile-avatar-container::before {
+        .profile-avatar-wrapper::before {
             content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 140px;
-            height: 140px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            background: #0077ff;
-            filter: blur(22px);
-            opacity: 0.95;
-            z-index: -1;
-            box-shadow: 0 0 30px #00a2ff;
+            background: radial-gradient(circle, rgba(0, 140, 255, 0.85) 0%, rgba(0, 100, 255, 0.3) 60%, transparent 100%);
+            filter: blur(18px);
+            z-index: 0;
         }
 
         .profile-avatar {
-            width: 100px;
-            height: 100px;
+            position: relative;
+            z-index: 1;
+            width: 102px;
+            height: 102px;
             border-radius: 50%;
             background-color: #facc15;
             border: 4px solid #ef4444;
             object-fit: cover;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
             display: block;
         }
 
-        /* BAGIAN BAWAH (BIRU) */
-        .section-bottom {
-            position: relative;
-            width: 100%;
-            min-height: 58vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 85px 20px 50px 20px;
-        }
-
-        /* VIDEO BIRU: MASKING OPACITY DI BAGIAN ATAS */
-        .section-bottom .bg-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            display: block;
-            -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to top, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
-        }
-
-        /* GRAFIK JARINGAN HITAM (NETWORK NODES) */
+        /* GRAFIK JARINGAN HITAM */
         .network-graphic {
             position: absolute;
-            top: 20px;
+            top: 54%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
             width: 220px;
             height: 300px;
-            z-index: 3;
+            z-index: 2;
             pointer-events: none;
-            opacity: 0.95;
+            opacity: 0.9;
         }
 
         .user-name {
@@ -196,7 +201,7 @@
             color: #ffffff;
             margin-bottom: 8px;
             font-family: Georgia, serif;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
         }
 
         .user-role {
@@ -205,7 +210,7 @@
             font-weight: 600;
             opacity: 0.95;
             margin-bottom: 4px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         .user-community {
@@ -213,7 +218,7 @@
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 25px;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
         }
 
         .social-container {
@@ -241,7 +246,7 @@
             width: 32px;
             height: 32px;
             fill: #ffffff;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
         }
     </style>
 </head>
@@ -249,51 +254,54 @@
 
     <div class="wrapper">
         
-        <!-- BAGIAN ATAS: hijau.mp4 -->
-        <div class="section-top">
-            <video class="bg-video" autoplay loop muted playsinline webkit-playsinline preload="auto">
+        <!-- LAPISAN BACKGROUND VIDEO (PERCAMPURAN SEAMLESS) -->
+        <div class="video-bg-layer">
+            <video class="video-hijau" autoplay loop muted playsinline webkit-playsinline preload="auto">
                 <source src="hijau.mp4" type="video/mp4">
             </video>
+            
+            <video class="video-biru" autoplay loop muted playsinline webkit-playsinline preload="auto">
+                <source src="biru.mp4" type="video/mp4">
+            </video>
+        </div>
 
-            <div class="glass-card-top">
+        <!-- BLUR TRANSISI ORGANIK TENGAH -->
+        <div class="natural-blend-blur"></div>
+
+        <!-- HIASAN JARINGAN GARIS & TITIK HITAM -->
+        <svg class="network-graphic" viewBox="0 0 100 160" fill="none" stroke="#000000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="42" y1="5" x2="33" y2="30" />
+            <line x1="33" y1="30" x2="16" y2="44" />
+            <line x1="33" y1="30" x2="44" y2="57" />
+            <line x1="44" y1="57" x2="61" y2="38" />
+            <line x1="44" y1="57" x2="58" y2="80" />
+            <line x1="58" y1="80" x2="54" y2="114" />
+
+            <circle cx="42" cy="5" r="4.5" fill="#000000" stroke="none" />
+            <circle cx="16" cy="44" r="5" fill="#000000" stroke="none" />
+            <circle cx="33" cy="30" r="5" fill="#000000" stroke="none" />
+            <circle cx="44" cy="57" r="5" fill="#000000" stroke="none" />
+            <circle cx="61" cy="38" r="5" fill="#000000" stroke="none" />
+            <circle cx="58" cy="80" r="5" fill="#000000" stroke="none" />
+            <circle cx="54" cy="114" r="5" fill="#000000" stroke="none" />
+        </svg>
+
+        <!-- AREA KONTEN UTAMA -->
+        <div class="content-container">
+            
+            <!-- CARD ATAS -->
+            <div class="glass-card">
                 <h1 class="title-main">ΣΛ Creator</h1>
                 <div class="title-sub">Official website</div>
             </div>
 
-            <div class="profile-avatar-container">
+            <!-- FOTO PROFIL -->
+            <div class="profile-avatar-wrapper">
                 <img src="pp.png" alt="Profile" class="profile-avatar">
             </div>
-        </div>
 
-        <!-- LAPISAN BLUR TRANSISI TENGAH -->
-        <div class="blend-blur-zone"></div>
-
-        <!-- BAGIAN BAWAH: biru.mp4 -->
-        <div class="section-bottom">
-            <video class="bg-video" autoplay loop muted playsinline webkit-playsinline preload="auto">
-                <source src="biru.mp4" type="video/mp4">
-            </video>
-
-            <!-- HIASAN JARINGAN GARIS & TITIK HITAM -->
-            <svg class="network-graphic" viewBox="0 0 100 160" fill="none" stroke="#000000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="42" y1="5" x2="33" y2="30" />
-                <line x1="33" y1="30" x2="16" y2="44" />
-                <line x1="33" y1="30" x2="44" y2="57" />
-                <line x1="44" y1="57" x2="61" y2="38" />
-                <line x1="44" y1="57" x2="58" y2="80" />
-                <line x1="58" y1="80" x2="54" y2="114" />
-
-                <!-- Node Circles -->
-                <circle cx="42" cy="5" r="4.5" fill="#000000" stroke="none" />
-                <circle cx="16" cy="44" r="5" fill="#000000" stroke="none" />
-                <circle cx="33" cy="30" r="5" fill="#000000" stroke="none" />
-                <circle cx="44" cy="57" r="5" fill="#000000" stroke="none" />
-                <circle cx="61" cy="38" r="5" fill="#000000" stroke="none" />
-                <circle cx="58" cy="80" r="5" fill="#000000" stroke="none" />
-                <circle cx="54" cy="114" r="5" fill="#000000" stroke="none" />
-            </svg>
-
-            <div class="glass-card-bottom">
+            <!-- CARD BAWAH -->
+            <div class="glass-card">
                 <h2 class="user-name">Fuu</h2>
                 <p class="user-role">Founder of</p>
                 <h3 class="user-community">ΣΛ Creator</h3>
@@ -308,6 +316,7 @@
                     </a>
                 </div>
             </div>
+
         </div>
 
     </div>

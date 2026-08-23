@@ -33,7 +33,7 @@
             box-shadow: 0 0 25px rgba(0,0,0,0.9);
         }
 
-        /* LAPISAN BACKGROUND VIDEO DENGAN CROSS-FADE PANJANG */
+        /* BACKGROUND VIDEO */
         .video-bg-layer {
             position: absolute;
             top: 0;
@@ -44,45 +44,42 @@
             pointer-events: none;
         }
 
-        /* VIDEO HIJAU (ATAS) */
         .video-hijau {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 65%;
+            height: 55%;
             object-fit: cover;
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
         }
 
-        /* VIDEO BIRU (BAWAH) */
         .video-biru {
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 65%;
+            height: 55%;
             object-fit: cover;
-            -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 40%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to top, rgba(0,0,0,1) 40%, rgba(0,0,0,0.4) 75%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to top, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
         }
 
-        /* PENDARAN TRANSISI: BIRU CERAH ALAMI (BRIGHT BLUE LUMINOUS BRIDGE) */
-        .bright-blue-transition-zone {
+        /* ELEMEN BULAT BIRU CERAH DENGAN GAUSSIAN BLUR DI TENGAH */
+        .central-blur-blob {
             position: absolute;
-            top: 35%;
-            left: 0;
-            width: 100%;
-            height: 30%;
+            top: 48%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120vw;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.95) 0%, rgba(0, 140, 255, 0.6) 50%, rgba(0, 80, 200, 0) 80%);
+            filter: blur(50px);
+            -webkit-filter: blur(50px);
             z-index: 2;
             pointer-events: none;
-            background: linear-gradient(to bottom, 
-                rgba(0, 150, 255, 0) 0%, 
-                rgba(0, 180, 255, 0.45) 50%, 
-                rgba(0, 119, 182, 0) 100%);
-            backdrop-filter: blur(16px) saturate(160%) brightness(130%);
-            -webkit-backdrop-filter: blur(16px) saturate(160%) brightness(130%);
             mix-blend-mode: screen;
         }
 
@@ -133,7 +130,7 @@
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9), 0 0 8px rgba(34, 197, 94, 0.5);
         }
 
-        /* FOTO PROFIL DENGAN GLOW BIRU ELEKTRIK CERAH */
+        /* FOTO PROFIL DENGAN GLOW BIRU ELEKTRIK */
         .profile-avatar-wrapper {
             position: relative;
             margin: 45px 0 35px 0;
@@ -238,7 +235,7 @@
 
     <div class="wrapper">
         
-        <!-- VIDEO BACKGROUND BERLAPIS -->
+        <!-- VIDEO BACKGROUND -->
         <div class="video-bg-layer">
             <video class="video-hijau" autoplay loop muted playsinline webkit-playsinline preload="auto">
                 <source src="hijau.mp4" type="video/mp4">
@@ -249,8 +246,8 @@
             </video>
         </div>
 
-        <!-- ZONE TRANSISI BIRU CERAH & BLUR ALAMI -->
-        <div class="bright-blue-transition-zone"></div>
+        <!-- ELEMEN BULAT GAUSSIAN BLUR BIRU CERAH DI TENGAH -->
+        <div class="central-blur-blob"></div>
 
         <!-- HIASAN JARINGAN -->
         <svg class="network-graphic" viewBox="0 0 100 160" fill="none" stroke="#000000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">

@@ -21,6 +21,7 @@
             min-height: 100vh;
         }
 
+        /* WRAPPER DENGAN BASE GRADIENT HIJAU-BIRU SEAMLESS */
         .wrapper {
             width: 100%;
             max-width: 480px;
@@ -28,7 +29,7 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            background-color: #030814;
+            background: linear-gradient(to bottom, #0f2415 0%, #083050 50%, #023e8a 100%);
             overflow-x: hidden;
             box-shadow: 0 0 20px rgba(0,0,0,0.8);
         }
@@ -37,29 +38,16 @@
         .section-top {
             position: relative;
             width: 100%;
-            height: 50vh;
+            height: 52vh;
             min-height: 380px;
-            background-color: #0f2415;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
         }
 
-        /* TRANSISI GRADIENT HALUS */
-        .section-top::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: linear-gradient(to bottom, rgba(15, 36, 21, 0), rgba(2, 62, 138, 0.9));
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .bg-video {
+        /* VIDEO HIJAU: MASKING OPACITY DI BAGIAN BAWAH */
+        .section-top .bg-video {
             position: absolute;
             top: 0;
             left: 0;
@@ -68,30 +56,48 @@
             object-fit: cover;
             z-index: 1;
             display: block;
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
         }
 
-        /* REALISTIC LIQUID GLASS CARD (KACA TEBAL & BENING) */
+        /* LAPISAN BLUR DI AREA TRANSISI TENGAH */
+        .blend-blur-zone {
+            position: absolute;
+            top: 50vh;
+            left: 0;
+            width: 100%;
+            height: 160px;
+            transform: translateY(-50%);
+            z-index: 2;
+            pointer-events: none;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            background: linear-gradient(to bottom, 
+                rgba(15, 36, 21, 0) 0%, 
+                rgba(8, 48, 80, 0.45) 50%, 
+                rgba(2, 62, 138, 0) 100%);
+        }
+
+        /* LIQUID GLASS CARD (BENING & KRISTAL) */
         .glass-card-top, .glass-card-bottom {
             position: relative;
-            z-index: 3;
+            z-index: 4;
             width: 88%;
             padding: 32px 20px;
             text-align: center;
             border-radius: 32px;
             
-            /* Background sangat transparan & blur tipis (Kaca Jernih) */
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(2.5px) contrast(110%) brightness(108%);
             -webkit-backdrop-filter: blur(2.5px) contrast(110%) brightness(108%);
             
-            /* Pinggiran Kaca Refraktif & Bevel Light */
             border: 1.5px solid rgba(255, 255, 255, 0.45);
             box-shadow: 
                 0 20px 40px rgba(0, 0, 0, 0.35),
-                inset 0 2px 3px rgba(255, 255, 255, 0.85),    /* Kilau Atas */
-                inset 0 -2px 4px rgba(0, 0, 0, 0.5),          /* Bayangan Bawah Kaca */
-                inset 2px 0 3px rgba(255, 255, 255, 0.4),     /* Sinar Kiri */
-                inset -2px 0 3px rgba(0, 0, 0, 0.3);         /* Sinar Kanan */
+                inset 0 2px 3px rgba(255, 255, 255, 0.85),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.5),
+                inset 2px 0 3px rgba(255, 255, 255, 0.4),
+                inset -2px 0 3px rgba(0, 0, 0, 0.3);
         }
 
         .title-main {
@@ -110,7 +116,7 @@
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9), 0 0 8px rgba(34, 197, 94, 0.5);
         }
 
-        /* FOTO PROFIL DENGAN GLOW BIRU BLUR HALO */
+        /* FOTO PROFIL & EFEK GLOW BIRU BLUR */
         .profile-avatar-container {
             position: absolute;
             bottom: -50px;
@@ -129,7 +135,7 @@
             height: 140px;
             border-radius: 50%;
             background: #0077ff;
-            filter: blur(20px);
+            filter: blur(22px);
             opacity: 0.95;
             z-index: -1;
             box-shadow: 0 0 30px #00a2ff;
@@ -150,12 +156,25 @@
         .section-bottom {
             position: relative;
             width: 100%;
-            min-height: 60vh;
-            background-color: #023e8a;
+            min-height: 58vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 85px 20px 50px 20px;
+        }
+
+        /* VIDEO BIRU: MASKING OPACITY DI BAGIAN ATAS */
+        .section-bottom .bg-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            display: block;
+            -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to top, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
         }
 
         /* GRAFIK JARINGAN HITAM (NETWORK NODES) */
@@ -166,7 +185,7 @@
             transform: translateX(-50%);
             width: 220px;
             height: 300px;
-            z-index: 2;
+            z-index: 3;
             pointer-events: none;
             opacity: 0.95;
         }
@@ -245,6 +264,9 @@
                 <img src="pp.png" alt="Profile" class="profile-avatar">
             </div>
         </div>
+
+        <!-- LAPISAN BLUR TRANSISI TENGAH -->
+        <div class="blend-blur-zone"></div>
 
         <!-- BAGIAN BAWAH: biru.mp4 -->
         <div class="section-bottom">

@@ -14,6 +14,7 @@
 
         html {
             scroll-behavior: smooth;
+            background-color: #000000;
         }
 
         body {
@@ -45,7 +46,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: #020617;
+            background-color: #000000;
         }
 
         /* BACKGROUND VIDEO BERLAPIS */
@@ -64,31 +65,31 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 55%;
+            height: 50%;
             object-fit: cover;
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
         }
 
         .video-biru {
             position: absolute;
-            bottom: 0;
+            top: 35%;
             left: 0;
             width: 100%;
-            height: 60%;
+            height: 50%;
             object-fit: cover;
-            -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to top, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 100%);
         }
 
         /* ELEMEN BULAT BLUR BIRU CERAH DI TENGAH */
         .central-blur-blob {
             position: absolute;
-            top: 48%;
+            top: 45%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 120vw;
-            height: 320px;
+            height: 300px;
             border-radius: 50%;
             background: radial-gradient(circle, rgba(0, 212, 255, 0.95) 0%, rgba(0, 140, 255, 0.6) 50%, rgba(0, 80, 200, 0) 80%);
             filter: blur(50px);
@@ -96,18 +97,6 @@
             z-index: 2;
             pointer-events: none;
             mix-blend-mode: screen;
-        }
-
-        /* OVERLAY FADE KE HITAM DI BAGIAN BAWAH HERO (MENGHILANGKAN GARIS POTONG) */
-        .hero-bottom-fade {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 220px;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 60%, #000000 100%);
-            z-index: 3;
-            pointer-events: none;
         }
 
         /* KONTEN HERO */
@@ -118,7 +107,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 20px 60px 20px;
+            padding: 40px 20px 40px 20px;
         }
 
         .glass-card {
@@ -188,7 +177,7 @@
 
         .network-graphic {
             position: absolute;
-            top: 54%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 220px;
@@ -252,24 +241,25 @@
             filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
         }
 
-        /* ================= SEKSI 2: TRANSISI HITAM MULUS KE UNGU ================= */
+        /* ================= SEKSI 2: SEKSI HITAM POLOS REVISI ================= */
         .purple-section {
             position: relative;
             width: 100%;
             min-height: 100vh;
-            /* Latar Belakang Gradasi: Murni Hitam -> Ungu Pekat -> Ungu Cerah */
+            /* Dibuat 100% Hitam Pekat (#000000) di bagian atas, lalu bertransisi ke ungu saat di-scroll turun */
             background: linear-gradient(to bottom, 
                 #000000 0%, 
-                #000000 25%, 
-                #2d0036 45%, 
-                #7b0091 68%, 
-                #a800c7 88%,
+                #000000 40%, 
+                #2d0036 58%, 
+                #7b0091 78%, 
+                #a800c7 92%,
                 #b000d1 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 100px 20px 80px 20px;
+            padding: 140px 20px 80px 20px; /* Jarak padding atas diperbesar agar area hitam murni terasa pas saat di-scroll */
             z-index: 5;
+            background-color: #000000;
         }
 
         /* KARTU PERTANYAAN (GLASS PURPLE CARD) */
@@ -426,9 +416,6 @@
 
             <div class="central-blur-blob"></div>
 
-            <!-- OVERLAY UNTUK MENUTUP GARIS POTONG BIRU DENGAN GRADASI HITAM HALUS -->
-            <div class="hero-bottom-fade"></div>
-
             <svg class="network-graphic" viewBox="0 0 100 160" fill="none" stroke="#000000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="42" y1="5" x2="33" y2="30" />
                 <line x1="33" y1="30" x2="16" y2="44" />
@@ -474,7 +461,7 @@
             </div>
         </section>
 
-        <!-- SEKSI 2: TRANSISI HITAM MULUS KE UNGU (DENGAN TAMPILAN PERTANYAAN & BALON KATA) -->
+        <!-- SEKSI 2: SEKSI HITAM POLOS REVISI KANAN BANYAK AREA HITAM LALU TRANSISI KE UNGU -->
         <section class="purple-section">
             
             <!-- KARTU PERTANYAAN -->
@@ -559,4 +546,5 @@
         });
     </script>
 </body>
-</html>
+    </html>
+    

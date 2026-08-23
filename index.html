@@ -46,6 +46,19 @@
             padding: 20px;
         }
 
+        /* TRANSISI GRADIENT HALUS */
+        .section-top::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(15, 36, 21, 0), rgba(2, 62, 138, 0.9));
+            z-index: 2;
+            pointer-events: none;
+        }
+
         .bg-video {
             position: absolute;
             top: 0;
@@ -57,20 +70,28 @@
             display: block;
         }
 
-        .glass-card-top {
+        /* REALISTIC LIQUID GLASS CARD (KACA TEBAL & BENING) */
+        .glass-card-top, .glass-card-bottom {
             position: relative;
-            z-index: 2;
-            width: 90%;
-            padding: 35px 20px;
+            z-index: 3;
+            width: 88%;
+            padding: 32px 20px;
             text-align: center;
-            border-radius: 28px;
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 32px;
+            
+            /* Background sangat transparan & blur tipis (Kaca Jernih) */
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(2.5px) contrast(110%) brightness(108%);
+            -webkit-backdrop-filter: blur(2.5px) contrast(110%) brightness(108%);
+            
+            /* Pinggiran Kaca Refraktif & Bevel Light */
+            border: 1.5px solid rgba(255, 255, 255, 0.45);
             box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.2),
-                inset 0 1px 2px rgba(255, 255, 255, 0.4);
+                0 20px 40px rgba(0, 0, 0, 0.35),
+                inset 0 2px 3px rgba(255, 255, 255, 0.85),    /* Kilau Atas */
+                inset 0 -2px 4px rgba(0, 0, 0, 0.5),          /* Bayangan Bawah Kaca */
+                inset 2px 0 3px rgba(255, 255, 255, 0.4),     /* Sinar Kiri */
+                inset -2px 0 3px rgba(0, 0, 0, 0.3);         /* Sinar Kanan */
         }
 
         .title-main {
@@ -78,7 +99,7 @@
             font-weight: 800;
             color: #ffffff;
             letter-spacing: 1px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 136, 255, 0.4);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.5);
             margin-bottom: 12px;
         }
 
@@ -86,15 +107,32 @@
             font-size: 1.25rem;
             font-weight: 700;
             color: #22c55e;
-            text-shadow: 0 0 8px rgba(34, 197, 94, 0.6), 0 2px 4px rgba(0,0,0,0.8);
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9), 0 0 8px rgba(34, 197, 94, 0.5);
         }
 
+        /* FOTO PROFIL DENGAN GLOW BIRU BLUR HALO */
         .profile-avatar-container {
             position: absolute;
             bottom: -50px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 10;
+        }
+
+        .profile-avatar-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: #0077ff;
+            filter: blur(20px);
+            opacity: 0.95;
+            z-index: -1;
+            box-shadow: 0 0 30px #00a2ff;
         }
 
         .profile-avatar {
@@ -104,7 +142,7 @@
             background-color: #facc15;
             border: 4px solid #ef4444;
             object-fit: cover;
-            box-shadow: 0 0 20px rgba(0, 136, 255, 0.6);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             display: block;
         }
 
@@ -117,23 +155,20 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 80px 20px 50px 20px;
+            padding: 85px 20px 50px 20px;
         }
 
-        .glass-card-bottom {
-            position: relative;
+        /* GRAFIK JARINGAN HITAM (NETWORK NODES) */
+        .network-graphic {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 220px;
+            height: 300px;
             z-index: 2;
-            width: 85%;
-            padding: 30px 20px;
-            text-align: center;
-            border-radius: 28px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.3),
-                inset 0 1px 1px rgba(255, 255, 255, 0.3);
+            pointer-events: none;
+            opacity: 0.95;
         }
 
         .user-name {
@@ -142,7 +177,7 @@
             color: #ffffff;
             margin-bottom: 8px;
             font-family: Georgia, serif;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
         }
 
         .user-role {
@@ -151,6 +186,7 @@
             font-weight: 600;
             opacity: 0.95;
             margin-bottom: 4px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .user-community {
@@ -158,7 +194,7 @@
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 25px;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
         }
 
         .social-container {
@@ -186,7 +222,7 @@
             width: 32px;
             height: 32px;
             fill: #ffffff;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
         }
     </style>
 </head>
@@ -194,7 +230,7 @@
 
     <div class="wrapper">
         
-        <!-- BAGIAN ATAS: hijau.mp4 (HURUF KECIL) -->
+        <!-- BAGIAN ATAS: hijau.mp4 -->
         <div class="section-top">
             <video class="bg-video" autoplay loop muted playsinline webkit-playsinline preload="auto">
                 <source src="hijau.mp4" type="video/mp4">
@@ -210,11 +246,30 @@
             </div>
         </div>
 
-        <!-- BAGIAN BAWAH: biru.mp4 (HURUF KECIL) -->
+        <!-- BAGIAN BAWAH: biru.mp4 -->
         <div class="section-bottom">
             <video class="bg-video" autoplay loop muted playsinline webkit-playsinline preload="auto">
                 <source src="biru.mp4" type="video/mp4">
             </video>
+
+            <!-- HIASAN JARINGAN GARIS & TITIK HITAM -->
+            <svg class="network-graphic" viewBox="0 0 100 160" fill="none" stroke="#000000" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="42" y1="5" x2="33" y2="30" />
+                <line x1="33" y1="30" x2="16" y2="44" />
+                <line x1="33" y1="30" x2="44" y2="57" />
+                <line x1="44" y1="57" x2="61" y2="38" />
+                <line x1="44" y1="57" x2="58" y2="80" />
+                <line x1="58" y1="80" x2="54" y2="114" />
+
+                <!-- Node Circles -->
+                <circle cx="42" cy="5" r="4.5" fill="#000000" stroke="none" />
+                <circle cx="16" cy="44" r="5" fill="#000000" stroke="none" />
+                <circle cx="33" cy="30" r="5" fill="#000000" stroke="none" />
+                <circle cx="44" cy="57" r="5" fill="#000000" stroke="none" />
+                <circle cx="61" cy="38" r="5" fill="#000000" stroke="none" />
+                <circle cx="58" cy="80" r="5" fill="#000000" stroke="none" />
+                <circle cx="54" cy="114" r="5" fill="#000000" stroke="none" />
+            </svg>
 
             <div class="glass-card-bottom">
                 <h2 class="user-name">Fuu</h2>
@@ -235,7 +290,7 @@
 
     </div>
 
-    <!-- JAVASCRIPT PAKSA PLAY AUTO -->
+    <!-- JAVASCRIPT AUTO-PLAY -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const videos = document.querySelectorAll('video');

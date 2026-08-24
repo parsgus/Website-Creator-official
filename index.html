@@ -12,18 +12,13 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth;
-            background-color: #000000;
-        }
-
-        body {
+        html, body {
             background-color: #000000;
             color: #ffffff;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
         }
 
         .wrapper {
@@ -38,6 +33,126 @@
             box-shadow: 0 0 25px rgba(0,0,0,0.9);
         }
 
+        /* ================= TOMBOL MENU LIQUID GLASS ================= */
+        .menu-btn-glass {
+            position: fixed;
+            top: 25px;
+            right: calc(50% - 220px);
+            z-index: 30;
+            width: 52px;
+            height: 42px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(12px) brightness(110%);
+            -webkit-backdrop-filter: blur(12px) brightness(110%);
+            border: 1.5px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 
+                0 8px 20px rgba(0, 0, 0, 0.3),
+                inset 0 1px 2px rgba(255, 255, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        @media (max-width: 480px) {
+            .menu-btn-glass {
+                right: 20px;
+            }
+        }
+
+        .menu-btn-glass:active {
+            transform: scale(0.92);
+        }
+
+        .menu-btn-glass span {
+            width: 24px;
+            height: 3.5px;
+            background-color: #ffffff;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+        }
+
+        /* ================= OVERLAY MENU ================= */
+        .overlay-menu {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 480px;
+            height: 100vh;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .overlay-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* BAGIAN ATAS HIJAU TOSKA */
+        .overlay-top {
+            width: 100%;
+            height: 55%;
+            background-color: #00d68f;
+            padding: 30px 25px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #ffffff;
+            cursor: pointer;
+            line-height: 1;
+            user-select: none;
+        }
+
+        .menu-pill {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 10px 26px;
+            border-radius: 50px;
+            font-size: 1.35rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .menu-pill:first-of-type {
+            margin-top: 55px;
+        }
+
+        .menu-pill:active {
+            transform: scale(0.95);
+        }
+
+        /* BAGIAN BAWAH EFEK BLUR */
+        .overlay-bottom {
+            width: 100%;
+            height: 45%;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
         /* ================= SEKSI 1: HERO ================= */
         .hero-section {
             position: relative;
@@ -50,7 +165,6 @@
             padding-bottom: 20px;
         }
 
-        /* LAYER OVERLAY HITAM PEKAT SAAT SCROLL */
         .hero-black-overlay {
             position: absolute;
             top: 0;
@@ -64,7 +178,6 @@
             will-change: opacity;
         }
 
-        /* BACKGROUND VIDEO BERLAPIS */
         .video-bg-layer {
             position: absolute;
             top: 0;
@@ -97,7 +210,6 @@
             mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
         }
 
-        /* ELEMEN BULAT BLUR BIRU CERAH */
         .central-blur-blob {
             position: absolute;
             top: 36%;
@@ -114,7 +226,6 @@
             opacity: 0.9;
         }
 
-        /* KONTEN HERO */
         .content-container {
             position: relative;
             z-index: 4;
@@ -408,9 +519,24 @@
 
     <div class="wrapper">
         
+        <!-- TOMBOL MENU GARIS DUA (LIQUID GLASS) -->
+        <div class="menu-btn-glass" id="menuBtn" aria-label="Open Menu">
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- OVERLAY MENU -->
+        <div class="overlay-menu" id="overlayMenu">
+            <div class="overlay-top">
+                <div class="close-btn" id="closeBtn">✕</div>
+                <a href="information.html" class="menu-pill">Information</a>
+                <a href="#" class="menu-pill">Page Developer</a>
+            </div>
+            <div class="overlay-bottom"></div>
+        </div>
+
         <!-- SEKSI 1: HERO UTAMA -->
         <section class="hero-section">
-            <!-- OVERLAY HITAM DINAMIS SAAT SCROLL -->
             <div class="hero-black-overlay" id="heroOverlay"></div>
 
             <div class="video-bg-layer">
@@ -487,74 +613,4 @@
                 </div>
 
                 <div class="thought-bubble">
-                    <p class="thought-text">"Awalnya buwat komunitas edit biasa eh tau nya banyak yang minat"</p>
-                </div>
-            </div>
-        </section>
-
-    </div>
-
-    <!-- JAVASCRIPT: AUTOPLAY, SCROLL FADE TO BLACK, & REVEAL ANIMATION -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // 1. EFEK HITAM DINAMIS SAAT USER SCROLL KE BAWAH
-            const heroOverlay = document.getElementById('heroOverlay');
-            window.addEventListener('scroll', () => {
-                const scrollY = window.scrollY;
-                // Dalam jarak scroll 250px seksi hero langsung menjadi 100% hitam pekat
-                const opacity = Math.min(scrollY / 250, 1);
-                if (heroOverlay) {
-                    heroOverlay.style.opacity = opacity;
-                }
-            }, { passive: true });
-
-            // 2. AUTOPLAY VIDEO HANDLER
-            const videos = document.querySelectorAll('video');
-
-            function forcePlayVideos() {
-                videos.forEach(video => {
-                    video.muted = true;
-                    video.defaultMuted = true;
-                    const playPromise = video.play();
-                    if (playPromise !== undefined) {
-                        playPromise.catch(error => {
-                            console.log("Autoplay di-block, menunggu interaksi.", error);
-                        });
-                    }
-                });
-            }
-
-            forcePlayVideos();
-
-            const userEvents = ['touchstart', 'touchend', 'click', 'scroll', 'pointerdown'];
-            function handleFirstTouch() {
-                forcePlayVideos();
-                userEvents.forEach(evt => window.removeEventListener(evt, handleFirstTouch));
-            }
-            userEvents.forEach(evt => window.addEventListener(evt, handleFirstTouch, { passive: true }));
-
-            document.addEventListener('visibilitychange', () => {
-                if (document.visibilityState === 'visible') forcePlayVideos();
-            });
-
-            // 3. SCROLL REVEAL ANIMATION
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, observerOptions);
-
-            const revealElements = document.querySelectorAll('.reveal');
-            revealElements.forEach(el => observer.observe(el));
-        });
-    </script>
-</body>
-</html>
+                    <p class="thought-text">"Awalnya buwat komunitas edit

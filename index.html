@@ -10,7 +10,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            -webkit-tap-highlight-color: transparent; /* Mencegah warna biru saat di-tap/klik */
+            -webkit-tap-highlight-color: transparent;
             outline: none;
         }
 
@@ -72,7 +72,6 @@
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
-        /* Transisi Garis 2 menjadi X */
         .menu-btn-glass.active span:nth-child(1) {
             transform: translateY(4px) rotate(45deg);
         }
@@ -81,7 +80,7 @@
             transform: translateY(-4px) rotate(-45deg);
         }
 
-        /* OVERLAY MENU - WARNA BIRU */
+        /* OVERLAY MENU */
         .overlay-menu {
             position: fixed;
             top: 0;
@@ -106,7 +105,7 @@
         .overlay-top {
             width: 100%;
             height: 55%;
-            background: linear-gradient(135deg, #0052d4, #4364f7, #6fb1fc); /* Warna Biru */
+            background: linear-gradient(135deg, #0052d4, #4364f7, #6fb1fc);
             padding: 30px 25px;
             position: relative;
             display: flex;
@@ -326,11 +325,11 @@
             position: relative;
             width: 100%;
             min-height: 100vh;
-            background: linear-gradient(to bottom, #000000 0%, #22002b 40%, #6b0080 75%, #b000d1 100%);
+            background: linear-gradient(to bottom, #000000 0%, #22002b 35%, #6b0080 70%, #d800ff 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 50px 20px 80px 20px;
+            padding: 50px 20px 40px 20px;
             z-index: 15;
         }
 
@@ -430,6 +429,120 @@
             font-family: Georgia, serif;
         }
 
+        /* SEKSI SCROLL BARU (ICHIKA & YUK JELAJAHI) */
+        .explore-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            /* Gradient mulus menyambung dari #d800ff -> ungu terang -> biru */
+            background: linear-gradient(to bottom, #d800ff 0%, #ab26f9 40%, #6848f5 70%, #517bf8 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 20px 60px 20px;
+            overflow: hidden;
+            z-index: 15;
+        }
+
+        .ichika-wrapper {
+            position: relative;
+            width: 100%;
+            min-height: 420px;
+            margin-top: 10px;
+        }
+
+        .ichika-img {
+            position: absolute;
+            top: 0;
+            right: -10px;
+            width: 220px;
+            height: auto;
+            object-fit: contain;
+            z-index: 2;
+        }
+
+        .ichika-thought-box {
+            position: absolute;
+            top: 120px;
+            left: 10px;
+            width: 65%;
+            z-index: 3;
+        }
+
+        .ichika-dots-top {
+            position: absolute;
+            top: -55px;
+            right: -25px;
+            display: flex;
+            gap: 8px;
+            align-items: flex-end;
+        }
+
+        .ichika-dot-1 {
+            width: 32px;
+            height: 32px;
+            background-color: #ffffff;
+            border-radius: 50%;
+        }
+
+        .ichika-dot-2 {
+            width: 20px;
+            height: 20px;
+            background-color: #ffffff;
+            border-radius: 50%;
+        }
+
+        .ichika-dot-3 {
+            width: 12px;
+            height: 12px;
+            background-color: #ffffff;
+            border-radius: 50%;
+        }
+
+        .ichika-bubble-round {
+            background-color: #ffffff;
+            border-radius: 40px;
+            padding: 24px 18px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            text-align: center;
+        }
+
+        .ichika-bubble-round p {
+            color: #000000;
+            font-size: 1.05rem;
+            font-weight: 800;
+            line-height: 1.35;
+        }
+
+        .explore-btn-wrapper {
+            margin-top: 40px;
+            margin-bottom: 40px;
+            z-index: 5;
+        }
+
+        .explore-btn {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: #ffffff;
+            font-size: 1.45rem;
+            font-weight: 800;
+            padding: 14px 42px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            transition: transform 0.2s ease, background 0.3s ease;
+        }
+
+        .explore-btn:active {
+            transform: scale(0.95);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        /* REVEAL SCROLL ANIMATION */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -458,6 +571,7 @@
             <div class="overlay-bottom" id="overlayBottom"></div>
         </div>
 
+        <!-- HERO SECTION -->
         <section class="hero-section">
             <div class="hero-black-overlay" id="heroOverlay"></div>
 
@@ -515,6 +629,7 @@
             </div>
         </section>
 
+        <!-- PURPLE SECTION -->
         <section class="purple-section">
             <div class="question-card reveal">
                 <p class="question-text">Apasih ΣΛ Creator itu dan apa tujuannya sih?</p>
@@ -529,51 +644,4 @@
                     <div class="dot-small"></div>
                 </div>
                 <div class="thought-bubble">
-                    <p class="thought-text">"Awalnya buwat komunitas edit biasa eh tau nya banyak yang minat"</p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuBtn = document.getElementById('menuBtn');
-            const overlayMenu = document.getElementById('overlayMenu');
-            const overlayBottom = document.getElementById('overlayBottom');
-
-            // Toggle Animasi Garis ke X & Buka/Tutup Overlay
-            menuBtn.addEventListener('click', () => {
-                menuBtn.classList.toggle('active');
-                overlayMenu.classList.toggle('active');
-            });
-
-            // Tutup overlay jika area transparan bawah diklik
-            overlayBottom.addEventListener('click', () => {
-                menuBtn.classList.remove('active');
-                overlayMenu.classList.remove('active');
-            });
-
-            const heroOverlay = document.getElementById('heroOverlay');
-            window.addEventListener('scroll', () => {
-                const scrollY = window.scrollY;
-                if (heroOverlay) heroOverlay.style.opacity = Math.min(scrollY / 250, 1);
-            }, { passive: true });
-
-            const videos = document.querySelectorAll('video');
-            videos.forEach(v => {
-                v.muted = true;
-                v.play().catch(() => {});
-            });
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('active');
-                });
-            }, { threshold: 0.15 });
-
-            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-        });
-    </script>
-</body>
-                                                         </html>
-                    
+                    <p class="thought-text">"Awalnya buwat

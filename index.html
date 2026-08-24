@@ -10,6 +10,8 @@
             padding: 0;
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent; /* Mencegah warna biru saat di-tap/klik */
+            outline: none;
         }
 
         html, body {
@@ -33,12 +35,12 @@
             box-shadow: 0 0 25px rgba(0,0,0,0.9);
         }
 
-        /* TOMBOL MENU GLASS */
+        /* TOMBOL MENU GLASS & ANIMASI GARIS DUA KE X */
         .menu-btn-glass {
             position: fixed;
             top: 20px;
             right: calc(50% - 220px);
-            z-index: 120;
+            z-index: 300;
             width: 50px;
             height: 42px;
             border-radius: 14px;
@@ -53,6 +55,7 @@
             align-items: center;
             gap: 5px;
             cursor: pointer;
+            transition: background 0.3s ease;
         }
 
         @media (max-width: 480px) {
@@ -66,9 +69,19 @@
             height: 3px;
             background-color: #ffffff;
             border-radius: 4px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
-        /* OVERLAY MENU */
+        /* Transisi Garis 2 menjadi X */
+        .menu-btn-glass.active span:nth-child(1) {
+            transform: translateY(4px) rotate(45deg);
+        }
+
+        .menu-btn-glass.active span:nth-child(2) {
+            transform: translateY(-4px) rotate(-45deg);
+        }
+
+        /* OVERLAY MENU - WARNA BIRU */
         .overlay-menu {
             position: fixed;
             top: 0;
@@ -93,23 +106,13 @@
         .overlay-top {
             width: 100%;
             height: 55%;
-            background-color: #00d68f;
+            background: linear-gradient(135deg, #0052d4, #4364f7, #6fb1fc); /* Warna Biru */
             padding: 30px 25px;
             position: relative;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             gap: 18px;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 2rem;
-            font-weight: 900;
-            color: #ffffff;
-            cursor: pointer;
         }
 
         .menu-pill {
@@ -122,6 +125,11 @@
             text-decoration: none;
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
             display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        .menu-pill:active {
+            transform: scale(0.96);
         }
 
         .menu-pill:first-of-type {
@@ -444,11 +452,10 @@
 
         <div class="overlay-menu" id="overlayMenu">
             <div class="overlay-top">
-                <div class="close-btn" id="closeBtn">✕</div>
                 <a href="information.html" class="menu-pill">Information</a>
-                <a href="#" class="menu-pill">Page Developer</a>
+                <a href="https://parsgus.my.id/" target="_blank" class="menu-pill">Page Developer</a>
             </div>
-            <div class="overlay-bottom"></div>
+            <div class="overlay-bottom" id="overlayBottom"></div>
         </div>
 
         <section class="hero-section">
@@ -532,10 +539,19 @@
         document.addEventListener('DOMContentLoaded', () => {
             const menuBtn = document.getElementById('menuBtn');
             const overlayMenu = document.getElementById('overlayMenu');
-            const closeBtn = document.getElementById('closeBtn');
+            const overlayBottom = document.getElementById('overlayBottom');
 
-            menuBtn.addEventListener('click', () => overlayMenu.classList.add('active'));
-            closeBtn.addEventListener('click', () => overlayMenu.classList.remove('active'));
+            // Toggle Animasi Garis ke X & Buka/Tutup Overlay
+            menuBtn.addEventListener('click', () => {
+                menuBtn.classList.toggle('active');
+                overlayMenu.classList.toggle('active');
+            });
+
+            // Tutup overlay jika area transparan bawah diklik
+            overlayBottom.addEventListener('click', () => {
+                menuBtn.classList.remove('active');
+                overlayMenu.classList.remove('active');
+            });
 
             const heroOverlay = document.getElementById('heroOverlay');
             window.addEventListener('scroll', () => {
@@ -560,4 +576,4 @@
     </script>
 </body>
                                                          </html>
-                                                         
+                    

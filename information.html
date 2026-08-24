@@ -10,6 +10,8 @@
             padding: 0;
             box-sizing: border-box;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            outline: none;
         }
 
         html, body {
@@ -28,7 +30,7 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            background: linear-gradient(to bottom, #2ed3ee 0%, #3550f7 100%);
+            background: linear-gradient(180deg, #001133 0%, #0052d4 50%, #00d4ff 100%); /* Tema Warna Biru */
             overflow-x: hidden;
             box-shadow: 0 0 25px rgba(0,0,0,0.9);
             padding: 40px 24px;
@@ -69,14 +71,21 @@
             text-align: center;
             max-width: 360px;
             margin-top: 40px;
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 30px 20px;
+            border-radius: 28px;
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
         }
 
         .info-text-main {
-            font-size: 2.1rem;
+            font-size: 1.85rem;
             font-weight: 900;
-            color: #000000;
-            line-height: 1.25;
+            color: #ffffff;
+            line-height: 1.35;
             letter-spacing: -0.2px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
         }
     </style>
 </head>

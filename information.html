@@ -36,7 +36,6 @@
             align-items: center;
         }
 
-        /* TOMBOL KEMBALI KE BERANDA */
         .back-btn-wrapper {
             position: absolute;
             top: 25px;
@@ -46,7 +45,6 @@
             gap: 8px;
             cursor: pointer;
             text-decoration: none;
-            user-select: none;
             z-index: 10;
         }
 
@@ -57,19 +55,6 @@
             border-bottom: 18px solid transparent;
             border-right: 32px solid #ffffff;
             filter: drop-shadow(0px 0px 2px #000000);
-            position: relative;
-        }
-
-        .back-triangle::after {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: 3px;
-            width: 0;
-            height: 0;
-            border-top: 15px solid transparent;
-            border-bottom: 15px solid transparent;
-            border-right: 27px solid #ffffff;
         }
 
         .back-text {
@@ -78,10 +63,8 @@
             color: #ffffff;
             -webkit-text-stroke: 1.5px #000000;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-            letter-spacing: 0.5px;
         }
 
-        /* KONTEN TEKS INFORMASI */
         .info-content-box {
             text-align: center;
             max-width: 360px;
@@ -94,20 +77,17 @@
             color: #000000;
             line-height: 1.25;
             letter-spacing: -0.2px;
-            text-shadow: 0 1px 2px rgba(255,255,255,0.2);
         }
     </style>
 </head>
 <body>
 
     <div class="wrapper">
-        <!-- TOMBOL KEMBALI KE BERANDA -->
         <a href="index.html" class="back-btn-wrapper">
             <div class="back-triangle"></div>
             <span class="back-text">beranda</span>
         </a>
 
-        <!-- KONTEN UTAMA -->
         <div class="info-content-box">
             <h2 class="info-text-main">
                 Komunitas ΣΛ<br>
@@ -125,4 +105,3 @@
 
 </body>
 </html>
-

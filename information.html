@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Information - ΣΛ Creator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html, body {
+            background-color: #000000;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 480px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: linear-gradient(to bottom, #2ed3ee 0%, #3550f7 100%);
+            overflow-x: hidden;
+            box-shadow: 0 0 25px rgba(0,0,0,0.9);
+            padding: 40px 24px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* TOMBOL KEMBALI KE BERANDA */
+        .back-btn-wrapper {
+            position: absolute;
+            top: 25px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            user-select: none;
+            z-index: 10;
+        }
+
+        .back-triangle {
+            width: 0;
+            height: 0;
+            border-top: 18px solid transparent;
+            border-bottom: 18px solid transparent;
+            border-right: 32px solid #ffffff;
+            filter: drop-shadow(0px 0px 2px #000000);
+            position: relative;
+        }
+
+        .back-triangle::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 3px;
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-right: 27px solid #ffffff;
+        }
+
+        .back-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #ffffff;
+            -webkit-text-stroke: 1.5px #000000;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 0.5px;
+        }
+
+        /* KONTEN TEKS INFORMASI */
+        .info-content-box {
+            text-align: center;
+            max-width: 360px;
+            margin-top: 40px;
+        }
+
+        .info-text-main {
+            font-size: 2.1rem;
+            font-weight: 900;
+            color: #000000;
+            line-height: 1.25;
+            letter-spacing: -0.2px;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        <!-- TOMBOL KEMBALI KE BERANDA -->
+        <a href="index.html" class="back-btn-wrapper">
+            <div class="back-triangle"></div>
+            <span class="back-text">beranda</span>
+        </a>
+
+        <!-- KONTEN UTAMA -->
+        <div class="info-content-box">
+            <h2 class="info-text-main">
+                Komunitas ΣΛ<br>
+                Lumayan<br>
+                menghindari style<br>
+                editing Mixtape<br>
+                karena Kami<br>
+                menganggap Style<br>
+                nya kurang<br>
+                mencerminkan<br>
+                kreatifitas
+            </h2>
+        </div>
+    </div>
+
+</body>
+</html>
+

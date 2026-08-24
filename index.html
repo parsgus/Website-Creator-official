@@ -18,7 +18,7 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
         }
 
         .wrapper {
@@ -33,29 +33,26 @@
             box-shadow: 0 0 25px rgba(0,0,0,0.9);
         }
 
-        /* ================= TOMBOL MENU LIQUID GLASS ================= */
+        /* TOMBOL MENU GLASS */
         .menu-btn-glass {
             position: fixed;
-            top: 25px;
+            top: 20px;
             right: calc(50% - 220px);
-            z-index: 30;
-            width: 52px;
+            z-index: 120;
+            width: 50px;
             height: 42px;
             border-radius: 14px;
-            background: rgba(255, 255, 255, 0.22);
+            background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(12px) brightness(110%);
             -webkit-backdrop-filter: blur(12px) brightness(110%);
-            border: 1.5px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 
-                0 8px 20px rgba(0, 0, 0, 0.3),
-                inset 0 1px 2px rgba(255, 255, 255, 0.8);
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             cursor: pointer;
-            transition: transform 0.2s ease;
         }
 
         @media (max-width: 480px) {
@@ -64,19 +61,14 @@
             }
         }
 
-        .menu-btn-glass:active {
-            transform: scale(0.92);
-        }
-
         .menu-btn-glass span {
-            width: 24px;
-            height: 3.5px;
+            width: 22px;
+            height: 3px;
             background-color: #ffffff;
             border-radius: 4px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.4);
         }
 
-        /* ================= OVERLAY MENU ================= */
+        /* OVERLAY MENU */
         .overlay-menu {
             position: fixed;
             top: 0;
@@ -85,10 +77,10 @@
             width: 100%;
             max-width: 480px;
             height: 100vh;
-            z-index: 100;
+            z-index: 200;
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.35s ease;
+            transition: opacity 0.3s ease;
             display: flex;
             flex-direction: column;
         }
@@ -98,7 +90,6 @@
             pointer-events: auto;
         }
 
-        /* BAGIAN ATAS HIJAU TOSKA */
         .overlay-top {
             width: 100%;
             height: 55%;
@@ -108,52 +99,44 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 20px;
+            gap: 18px;
         }
 
         .close-btn {
             position: absolute;
-            top: 25px;
+            top: 20px;
             right: 25px;
-            font-size: 2.2rem;
+            font-size: 2rem;
             font-weight: 900;
             color: #ffffff;
             cursor: pointer;
-            line-height: 1;
-            user-select: none;
         }
 
         .menu-pill {
             background-color: #000000;
             color: #ffffff;
-            padding: 10px 26px;
+            padding: 10px 24px;
             border-radius: 50px;
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             font-weight: 700;
             text-decoration: none;
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-            transition: transform 0.2s ease;
             display: inline-block;
         }
 
         .menu-pill:first-of-type {
-            margin-top: 55px;
+            margin-top: 45px;
         }
 
-        .menu-pill:active {
-            transform: scale(0.95);
-        }
-
-        /* BAGIAN BAWAH EFEK BLUR */
         .overlay-bottom {
             width: 100%;
             height: 45%;
-            background: rgba(0, 0, 0, 0.45);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
         }
 
-        /* ================= SEKSI 1: HERO ================= */
+        /* HERO SECTION */
         .hero-section {
             position: relative;
             min-height: 100vh;
@@ -162,7 +145,7 @@
             flex-direction: column;
             align-items: center;
             background-color: #000000;
-            padding-bottom: 20px;
+            padding-bottom: 40px;
         }
 
         .hero-black-overlay {
@@ -175,7 +158,6 @@
             opacity: 0;
             z-index: 10;
             pointer-events: none;
-            will-change: opacity;
         }
 
         .video-bg-layer {
@@ -193,7 +175,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 48%;
+            height: 50%;
             object-fit: cover;
             -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
             mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%);
@@ -206,8 +188,8 @@
             width: 100%;
             height: 70%;
             object-fit: cover;
-            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
-            mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 25%, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 100%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
         }
 
         .central-blur-blob {
@@ -215,15 +197,13 @@
             top: 36%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 320px;
-            height: 320px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
-            background: radial-gradient(circle, #00d4ff 0%, #0066ff 45%, rgba(0, 102, 255, 0) 70%);
+            background: radial-gradient(circle, #00d4ff 0%, #0066ff 45%, transparent 70%);
             filter: blur(35px);
-            -webkit-filter: blur(35px);
             z-index: 2;
             pointer-events: none;
-            opacity: 0.9;
         }
 
         .content-container {
@@ -237,41 +217,33 @@
         }
 
         .glass-card {
-            width: 88%;
-            padding: 32px 20px;
+            width: 90%;
+            padding: 28px 20px;
             text-align: center;
             border-radius: 32px;
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(2.5px) contrast(110%) brightness(108%);
-            -webkit-backdrop-filter: blur(2.5px) contrast(110%) brightness(108%);
-            border: 1.5px solid rgba(255, 255, 255, 0.45);
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.35),
-                inset 0 2px 3px rgba(255, 255, 255, 0.85),
-                inset 0 -2px 4px rgba(0, 0, 0, 0.5),
-                inset 2px 0 3px rgba(255, 255, 255, 0.4),
-                inset -2px 0 3px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         }
 
         .title-main {
-            font-size: 2.3rem;
+            font-size: 2.2rem;
             font-weight: 800;
             color: #ffffff;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .title-sub {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: #22c55e;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9), 0 0 8px rgba(34, 197, 94, 0.5);
         }
 
         .profile-avatar-wrapper {
             position: relative;
-            margin: 45px 0 35px 0;
+            margin: 40px 0 30px 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -280,25 +252,23 @@
         .profile-avatar-wrapper::before {
             content: '';
             position: absolute;
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.95) 0%, rgba(0, 119, 182, 0.5) 60%, transparent 100%);
-            filter: blur(18px);
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.9) 0%, transparent 70%);
+            filter: blur(15px);
             z-index: 0;
         }
 
         .profile-avatar {
             position: relative;
             z-index: 1;
-            width: 102px;
-            height: 102px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             background-color: #facc15;
             border: 4px solid #ef4444;
             object-fit: cover;
-            box-shadow: 0 0 25px rgba(0, 180, 255, 0.6);
-            display: block;
         }
 
         .network-graphic {
@@ -310,101 +280,68 @@
             height: 300px;
             z-index: 3;
             pointer-events: none;
-            opacity: 0.9;
         }
 
         .user-name {
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-family: Georgia, serif;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
         }
 
         .user-role {
-            font-size: 1.1rem;
-            color: #ffffff;
-            font-weight: 600;
-            opacity: 0.95;
+            font-size: 1.05rem;
+            opacity: 0.9;
             margin-bottom: 4px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
         }
 
         .user-community {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 25px;
-            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
         }
 
         .social-container {
             display: flex;
             justify-content: center;
-            gap: 25px;
-        }
-
-        .social-btn {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 50px;
-            text-decoration: none;
-            color: #ffffff;
-            transition: transform 0.2s ease;
-        }
-
-        .social-btn:active {
-            transform: scale(0.9);
+            gap: 20px;
         }
 
         .social-btn svg {
             width: 32px;
             height: 32px;
             fill: #ffffff;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.6));
         }
 
-        /* ================= SEKSI 2: SEKSI UNGU ================= */
+        /* SEKSI UNGU */
         .purple-section {
             position: relative;
             width: 100%;
             min-height: 100vh;
-            background: linear-gradient(to bottom, 
-                #000000 0%, 
-                #000000 25%, 
-                #22002b 50%, 
-                #6b0080 75%, 
-                #b000d1 100%);
+            background: linear-gradient(to bottom, #000000 0%, #22002b 40%, #6b0080 75%, #b000d1 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 60px 20px 80px 20px;
+            padding: 50px 20px 80px 20px;
             z-index: 15;
         }
 
         .question-card {
             width: 90%;
-            padding: 24px 20px;
-            border-radius: 28px;
+            padding: 22px 18px;
+            border-radius: 26px;
             background: rgba(180, 50, 220, 0.35);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 2px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5),
-                        inset 0 2px 4px rgba(255, 255, 255, 0.6);
             text-align: center;
             margin-bottom: 25px;
         }
 
         .question-text {
-            font-size: 1.45rem;
+            font-size: 1.35rem;
             font-weight: 800;
-            color: #ffffff;
             line-height: 1.35;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.6);
         }
 
         .thought-container {
@@ -413,47 +350,39 @@
             flex-direction: column;
             align-items: flex-start;
             position: relative;
-            padding: 10px 5px;
         }
 
         .purple-avatar-wrapper {
             position: relative;
             margin-left: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             z-index: 2;
         }
 
         .purple-avatar-wrapper::before {
             content: '';
             position: absolute;
-            width: 140px;
-            height: 140px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(235, 80, 255, 0.95) 0%, rgba(180, 0, 220, 0.6) 60%, transparent 100%);
-            filter: blur(22px);
-            -webkit-filter: blur(22px);
+            background: radial-gradient(circle, rgba(235, 80, 255, 0.9) 0%, transparent 70%);
+            filter: blur(20px);
             z-index: 0;
         }
 
         .purple-avatar {
             position: relative;
             z-index: 1;
-            width: 95px;
-            height: 95px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
-            background-color: #facc15;
             border: 3.5px solid #ef4444;
             object-fit: cover;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-            display: block;
         }
 
         .thought-dots {
             position: absolute;
-            top: 75px;
-            left: 110px;
+            top: 70px;
+            left: 105px;
             display: flex;
             flex-direction: column;
             gap: 6px;
@@ -461,71 +390,58 @@
         }
 
         .dot-large {
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
             background-color: #ffffff;
             border-radius: 50%;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
         }
 
         .dot-small {
-            width: 14px;
-            height: 14px;
+            width: 12px;
+            height: 12px;
             background-color: #ffffff;
             border-radius: 50%;
-            margin-left: 18px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            margin-left: 16px;
         }
 
         .thought-bubble {
             align-self: flex-end;
             margin-top: 15px;
-            margin-right: 5px;
             width: 82%;
             background-color: #ffffff;
-            border-radius: 60px;
-            padding: 30px 24px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-radius: 50px;
+            padding: 26px 20px;
             z-index: 2;
             text-align: center;
         }
 
         .thought-text {
             color: #000000;
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 800;
-            line-height: 1.35;
             font-family: Georgia, serif;
         }
 
         .reveal {
             opacity: 0;
             transform: translateY(30px);
-            filter: blur(10px);
-            -webkit-filter: blur(10px);
-            transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-            will-change: opacity, transform, filter;
+            transition: all 0.8s ease;
         }
 
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
-            filter: blur(0);
-            -webkit-filter: blur(0);
         }
     </style>
 </head>
 <body>
 
     <div class="wrapper">
-        
-        <!-- TOMBOL MENU GARIS DUA (LIQUID GLASS) -->
-        <div class="menu-btn-glass" id="menuBtn" aria-label="Open Menu">
+        <div class="menu-btn-glass" id="menuBtn">
             <span></span>
             <span></span>
         </div>
 
-        <!-- OVERLAY MENU -->
         <div class="overlay-menu" id="overlayMenu">
             <div class="overlay-top">
                 <div class="close-btn" id="closeBtn">✕</div>
@@ -535,7 +451,6 @@
             <div class="overlay-bottom"></div>
         </div>
 
-        <!-- SEKSI 1: HERO UTAMA -->
         <section class="hero-section">
             <div class="hero-black-overlay" id="heroOverlay"></div>
 
@@ -543,7 +458,6 @@
                 <video class="video-hijau" autoplay loop muted playsinline webkit-playsinline preload="auto">
                     <source src="hijau.mp4" type="video/mp4">
                 </video>
-                
                 <video class="video-biru" autoplay loop muted playsinline webkit-playsinline preload="auto">
                     <source src="biru.mp4" type="video/mp4">
                 </video>
@@ -558,14 +472,13 @@
                 <line x1="44" y1="57" x2="61" y2="38" />
                 <line x1="44" y1="57" x2="58" y2="80" />
                 <line x1="58" y1="80" x2="54" y2="114" />
-
-                <circle cx="42" cy="5" r="4.5" fill="#000000" stroke="none" />
-                <circle cx="16" cy="44" r="5" fill="#000000" stroke="none" />
-                <circle cx="33" cy="30" r="5" fill="#000000" stroke="none" />
-                <circle cx="44" cy="57" r="5" fill="#000000" stroke="none" />
-                <circle cx="61" cy="38" r="5" fill="#000000" stroke="none" />
-                <circle cx="58" cy="80" r="5" fill="#000000" stroke="none" />
-                <circle cx="54" cy="114" r="5" fill="#000000" stroke="none" />
+                <circle cx="42" cy="5" r="4.5" fill="#000000" />
+                <circle cx="16" cy="44" r="5" fill="#000000" />
+                <circle cx="33" cy="30" r="5" fill="#000000" />
+                <circle cx="44" cy="57" r="5" fill="#000000" />
+                <circle cx="61" cy="38" r="5" fill="#000000" />
+                <circle cx="58" cy="80" r="5" fill="#000000" />
+                <circle cx="54" cy="114" r="5" fill="#000000" />
             </svg>
 
             <div class="content-container">
@@ -584,11 +497,10 @@
                     <h3 class="user-community">ΣΛ Creator</h3>
 
                     <div class="social-container">
-                        <a href="https://www.facebook.com/share/1CL3FGXmyn/" target="_blank" class="social-btn" aria-label="Facebook">
+                        <a href="https://www.facebook.com/share/1CL3FGXmyn/" target="_blank" class="social-btn">
                             <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         </a>
-
-                        <a href="https://www.tiktok.com/@fuu.kilakuin?_r=1&_t=ZS-997ALUyszhd" target="_blank" class="social-btn" aria-label="TikTok">
+                        <a href="https://www.tiktok.com/@fuu.kilakuin?_r=1&_t=ZS-997ALUyszhd" target="_blank" class="social-btn">
                             <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.36 1.52-1.38 2.52-.01.97.48 1.93 1.24 2.53.86.68 2 1 3.09.84 1.25-.13 2.39-.88 2.93-2 .35-.7.43-1.5.43-2.28V.02z"/></svg>
                         </a>
                     </div>
@@ -596,7 +508,6 @@
             </div>
         </section>
 
-        <!-- SEKSI 2: SEKSI UNGU -->
         <section class="purple-section">
             <div class="question-card reveal">
                 <p class="question-text">Apasih ΣΛ Creator itu dan apa tujuannya sih?</p>
@@ -606,11 +517,47 @@
                 <div class="purple-avatar-wrapper">
                     <img src="pp.png" alt="Profile" class="purple-avatar">
                 </div>
-
                 <div class="thought-dots">
                     <div class="dot-large"></div>
                     <div class="dot-small"></div>
                 </div>
-
                 <div class="thought-bubble">
-                    <p class="thought-text">"Awalnya buwat komunitas edit
+                    <p class="thought-text">"Awalnya buwat komunitas edit biasa eh tau nya banyak yang minat"</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menuBtn');
+            const overlayMenu = document.getElementById('overlayMenu');
+            const closeBtn = document.getElementById('closeBtn');
+
+            menuBtn.addEventListener('click', () => overlayMenu.classList.add('active'));
+            closeBtn.addEventListener('click', () => overlayMenu.classList.remove('active'));
+
+            const heroOverlay = document.getElementById('heroOverlay');
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY;
+                if (heroOverlay) heroOverlay.style.opacity = Math.min(scrollY / 250, 1);
+            }, { passive: true });
+
+            const videos = document.querySelectorAll('video');
+            videos.forEach(v => {
+                v.muted = true;
+                v.play().catch(() => {});
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('active');
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+                                                         </html>
+                                                         

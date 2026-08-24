@@ -14,7 +14,12 @@
             outline: none;
         }
 
-        html, body {
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 20px;
+        }
+
+        body {
             background-color: #000000;
             color: #ffffff;
             width: 100%;
@@ -22,7 +27,6 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            scroll-behavior: smooth;
             overflow-x: hidden;
         }
 
@@ -37,16 +41,16 @@
             box-shadow: 0 0 30px rgba(0,0,0,0.9);
         }
 
-        /* TOMBOL MENU */
+        /* TOMBOL MENU GARIS DUA (FIXED) */
         .menu-btn-glass {
             position: fixed;
             top: 20px;
             right: 20px;
-            z-index: 99999;
+            z-index: 999999;
             width: 48px;
             height: 42px;
             border-radius: 12px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1.5px solid rgba(255, 255, 255, 0.4);
@@ -56,6 +60,8 @@
             align-items: center;
             gap: 5px;
             cursor: pointer;
+            pointer-events: auto;
+            user-select: none;
         }
 
         .menu-btn-glass span {
@@ -64,7 +70,7 @@
             background-color: #ffffff;
             border-radius: 4px;
             pointer-events: none;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .menu-btn-glass.active span:nth-child(1) {
@@ -75,17 +81,15 @@
             transform: translateY(-4px) rotate(-45deg);
         }
 
-        /* OVERLAY MENU - FIXED (display: none agar layar tidak kekunci) */
+        /* OVERLAY MENU */
         .overlay-menu {
             position: fixed;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            max-width: 480px;
+            left: 0;
+            width: 100vw;
             height: 100vh;
-            z-index: 90000;
-            display: none; 
+            z-index: 99998;
+            display: none;
             flex-direction: column;
         }
 
@@ -95,13 +99,14 @@
 
         .overlay-top {
             width: 100%;
-            height: 55%;
+            height: 50%;
             background: linear-gradient(135deg, #0052d4, #4364f7, #6fb1fc);
-            padding: 70px 25px 30px 25px;
+            padding: 80px 25px 30px 25px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
             gap: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .menu-pill {
@@ -113,14 +118,15 @@
             font-weight: 700;
             text-decoration: none;
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            display: inline-block;
         }
 
         .overlay-bottom {
             width: 100%;
-            height: 45%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            height: 50%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             cursor: pointer;
         }
 
@@ -133,6 +139,7 @@
             flex-direction: column;
             align-items: center;
             background-color: #000000;
+            transition: opacity 0.3s ease;
         }
 
         .hero-black-overlay {
@@ -142,6 +149,7 @@
             opacity: 0;
             z-index: 2;
             pointer-events: none;
+            transition: opacity 0.1s linear;
         }
 
         .video-bg-layer {
@@ -269,14 +277,16 @@
             pointer-events: none;
         }
 
-        /* SEKSI UNGU */
+        /* SEKSI UNGU & TRANSISI SCROLL */
         .purple-section {
             width: 100%;
             background: linear-gradient(180deg, #000000 0%, #230038 20%, #64008a 60%, #9900cc 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 20px 50px 20px;
+            padding: 50px 20px 60px 20px;
+            position: relative;
+            z-index: 20;
         }
 
         .question-card {
@@ -359,7 +369,7 @@
             word-wrap: break-word;
         }
 
-        /* SEKSI ICHIKA DIKEMBALIKAN 100% */
+        /* SEKSI ICHIKA (POSISI KE KANAN & MERENG) */
         .explore-section {
             width: 100%;
             background: linear-gradient(180deg, #9900cc 0%, #7a22e2 35%, #5046e5 70%, #3b82f6 100%);
@@ -369,49 +379,53 @@
             padding: 20px 20px 70px 20px;
             position: relative;
             overflow: hidden;
+            z-index: 20;
         }
 
         .ichika-wrapper {
             position: relative;
             width: 100%;
-            min-height: 400px;
+            min-height: 440px;
             margin-top: 10px;
         }
 
+        /* Karakter lebih ke kanan & mereng (rotated) sesuai referensi */
         .ichika-img {
             position: absolute;
-            top: 0;
-            right: -10px;
+            top: 10px;
+            right: -25px;
             width: 210px;
             height: auto;
             object-fit: contain;
             z-index: 2;
+            transform: rotate(4deg);
+            transform-origin: center right;
         }
 
         .ichika-thought-box {
             position: absolute;
-            top: 110px;
+            top: 130px;
             left: 5px;
-            width: 70%;
+            width: 72%;
             z-index: 3;
         }
 
         .ichika-dots-top {
             position: absolute;
-            top: -40px;
-            right: -15px;
+            top: -38px;
+            right: -10px;
             display: flex;
             gap: 6px;
             align-items: flex-end;
         }
 
-        .ichika-dot-1 { width: 24px; height: 24px; background-color: #ffffff; border-radius: 50%; }
-        .ichika-dot-2 { width: 15px; height: 15px; background-color: #ffffff; border-radius: 50%; }
-        .ichika-dot-3 { width: 9px; height: 9px; background-color: #ffffff; border-radius: 50%; }
+        .ichika-dot-1 { width: 22px; height: 22px; background-color: #ffffff; border-radius: 50%; }
+        .ichika-dot-2 { width: 14px; height: 14px; background-color: #ffffff; border-radius: 50%; }
+        .ichika-dot-3 { width: 8px; height: 8px; background-color: #ffffff; border-radius: 50%; }
 
         .ichika-bubble-round {
             background-color: #ffffff;
-            border-radius: 40px;
+            border-radius: 35px;
             padding: 22px 18px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.25);
             text-align: left;
@@ -426,7 +440,7 @@
         }
 
         .explore-btn-wrapper {
-            margin-top: 20px;
+            margin-top: 25px;
             position: relative;
             z-index: 50;
         }
@@ -445,9 +459,9 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
             border: 1.5px solid rgba(255, 255, 255, 0.5);
             cursor: pointer;
-            transition: transform 0.2s ease;
+            transition: transform 0.2s ease, background-color 0.2s ease;
         }
-        
+
         .explore-btn:active {
             transform: scale(0.95);
         }
@@ -456,7 +470,7 @@
 <body>
 
     <div class="wrapper">
-        <!-- TOMBOL MENU -->
+        <!-- TOMBOL MENU GARIS DUA (FIXED HIGHEST Z-INDEX) -->
         <div class="menu-btn-glass" id="menuBtn">
             <span></span>
             <span></span>
@@ -466,7 +480,6 @@
         <div class="overlay-menu" id="overlayMenu">
             <div class="overlay-top">
                 <a href="information.html" class="menu-pill">Information</a>
-                <!-- Link Developer dipastikan tanpa _blank jika dari in-app browser sering mati -->
                 <a href="https://parsgus.my.id/" class="menu-pill">Page Developer</a>
             </div>
             <div class="overlay-bottom" id="overlayBottom"></div>
@@ -518,7 +531,6 @@
                     <p class="user-role">Founder of</p>
                     <h3 class="user-community">ΣΛ Creator</h3>
 
-                    <!-- TARGET=_BLANK DIHAPUS AGAR BISA DIBUKA DI INSTAGRAM/TIKTOK -->
                     <div class="social-container">
                         <a href="https://www.facebook.com/share/1CL3FGXmyn/" class="social-btn" aria-label="Facebook">
                             <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -568,13 +580,4 @@
                 </div>
             </div>
 
-            <div class="explore-btn-wrapper">
-                <a href="#purpleSection" class="explore-btn" id="exploreBtn">Yuk jelajahi</a>
-            </div>
-        </section>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuBtn = document.getElementById('menuBtn');
-            const overlayMenu =
+            

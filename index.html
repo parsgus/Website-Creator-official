@@ -16,7 +16,6 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 20px;
         }
 
         body {
@@ -41,7 +40,7 @@
             box-shadow: 0 0 30px rgba(0,0,0,0.9);
         }
 
-        /* TOMBOL MENU GARIS DUA (FIXED) */
+        /* TOMBOL MENU GARIS DUA (DIPERBAIKI) */
         .menu-btn-glass {
             position: fixed;
             top: 20px;
@@ -61,7 +60,7 @@
             gap: 5px;
             cursor: pointer;
             pointer-events: auto;
-            user-select: none;
+            touch-action: manipulation;
         }
 
         .menu-btn-glass span {
@@ -81,7 +80,7 @@
             transform: translateY(-4px) rotate(-45deg);
         }
 
-        /* OVERLAY MENU */
+        /* OVERLAY MENU (ANIMASI LEBIH SMOOTH) */
         .overlay-menu {
             position: fixed;
             top: 0;
@@ -89,12 +88,18 @@
             width: 100vw;
             height: 100vh;
             z-index: 99998;
-            display: none;
+            display: flex;
             flex-direction: column;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .overlay-menu.active {
-            display: flex;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
         }
 
         .overlay-top {
@@ -130,26 +135,15 @@
             cursor: pointer;
         }
 
-        /* HERO SECTION */
+        /* HERO SECTION (PERBAIKAN TRANSISI SCROLL) */
         .hero-section {
             position: relative;
             width: 100%;
-            padding-bottom: 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
             background-color: #000000;
-            transition: opacity 0.3s ease;
-        }
-
-        .hero-black-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: #000000;
-            opacity: 0;
-            z-index: 2;
-            pointer-events: none;
-            transition: opacity 0.1s linear;
+            padding-bottom: 20px;
         }
 
         .video-bg-layer {
@@ -157,6 +151,9 @@
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 1;
             pointer-events: none;
+            /* Efek fading agar nyambung ke seksi ungu */
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
         }
 
         .video-hijau {
@@ -277,16 +274,18 @@
             pointer-events: none;
         }
 
-        /* SEKSI UNGU & TRANSISI SCROLL */
+        /* SEKSI UNGU (TIDAK ADA LAGI CELAH HITAM) */
         .purple-section {
             width: 100%;
-            background: linear-gradient(180deg, #000000 0%, #230038 20%, #64008a 60%, #9900cc 100%);
+            /* Mulai tepat dari hitam penuh agar transisinya mulus dari hero */
+            background: linear-gradient(180deg, #000000 0%, #230038 25%, #64008a 60%, #9900cc 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 50px 20px 60px 20px;
+            padding: 40px 20px 60px 20px;
             position: relative;
             z-index: 20;
+            margin-top: -2px; /* Mencegah garis putih/putus-putus */
         }
 
         .question-card {
@@ -369,7 +368,7 @@
             word-wrap: break-word;
         }
 
-        /* SEKSI ICHIKA (POSISI KE KANAN & MERENG) */
+        /* SEKSI ICHIKA (PERBAIKAN POSISI DAN KEMIRINGAN) */
         .explore-section {
             width: 100%;
             background: linear-gradient(180deg, #9900cc 0%, #7a22e2 35%, #5046e5 70%, #3b82f6 100%);
@@ -385,27 +384,26 @@
         .ichika-wrapper {
             position: relative;
             width: 100%;
-            min-height: 440px;
-            margin-top: 10px;
+            min-height: 500px; /* Diberi ruang cukup tinggi agar kaki tetap terlihat */
+            margin-top: 20px;
         }
 
-        /* Karakter lebih ke kanan & mereng (rotated) sesuai referensi */
         .ichika-img {
             position: absolute;
-            top: 10px;
-            right: -25px;
-            width: 210px;
+            bottom: -10px; /* Merapat ke bawah */
+            right: -70px; /* Digeser drastis ke kanan agar tubuh bagian kanannya kepotong */
+            width: 250px; /* Ukuran diperbesar sedikit */
             height: auto;
             object-fit: contain;
             z-index: 2;
-            transform: rotate(4deg);
-            transform-origin: center right;
+            transform: rotate(8deg); /* Dibuat lebih mereng */
+            transform-origin: bottom center; /* Sumbu rotasi dari bawah */
         }
 
         .ichika-thought-box {
             position: absolute;
-            top: 130px;
-            left: 5px;
+            top: 130px; /* Posisi text box disejajarkan dekat dada/pundaknya */
+            left: 0;
             width: 72%;
             z-index: 3;
         }
@@ -470,7 +468,7 @@
 <body>
 
     <div class="wrapper">
-        <!-- TOMBOL MENU GARIS DUA (FIXED HIGHEST Z-INDEX) -->
+        <!-- TOMBOL MENU GARIS DUA (FIXED) -->
         <div class="menu-btn-glass" id="menuBtn">
             <span></span>
             <span></span>
@@ -487,8 +485,6 @@
 
         <!-- HERO SECTION -->
         <section class="hero-section">
-            <div class="hero-black-overlay" id="heroOverlay"></div>
-
             <div class="video-bg-layer">
                 <video class="video-hijau" autoplay loop muted playsinline webkit-playsinline preload="auto">
                     <source src="hijau.mp4" type="video/mp4">
@@ -569,15 +565,4 @@
                 <img src="ihcika.png" alt="Ichika" class="ichika-img">
 
                 <div class="ichika-thought-box">
-                    <div class="ichika-dots-top">
-                        <div class="ichika-dot-1"></div>
-                        <div class="ichika-dot-2"></div>
-                        <div class="ichika-dot-3"></div>
-                    </div>
-                    <div class="ichika-bubble-round">
-                        <p>"Jadi yah di jadiin marga sekalian buat nampung yang bener bener mau belajar jadi editor"</p>
-                    </div>
-                </div>
-            </div>
-
-            
+                    <div class="ichika-dots-top

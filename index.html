@@ -133,18 +133,20 @@ body{
 /* ===== SECTION ICHIKA ===== */
 .explore-section{ position:relative; width:100%; display:flex; flex-direction:column; align-items:center; padding:20px 20px 70px; z-index:2; }
 
-.ichika-scene{ position:relative; width:100%; height:560px; margin-top:10px; }
+.ichika-scene{ position:relative; width:100%; height:600px; margin-top:0; }
 
+/* Miring lebih jelas & bleed ke kanan-atas, mengikuti pose referensi (badan condong, bukan lurus di tengah) */
 .ichika-img{
-  position:absolute; top:0; right:-18px;
-  width:260px; height:auto; aspect-ratio:736/1448;
-  object-fit:contain; transform:rotate(7deg); transform-origin:top center;
+  position:absolute; top:-15px; right:-42px;
+  width:280px; height:auto; aspect-ratio:736/1448;
+  object-fit:contain; transform:rotate(14deg); transform-origin:top center;
   z-index:2; pointer-events:none;
   filter:drop-shadow(0 20px 30px rgba(0,0,0,.55));
 }
 
+/* Bubble digeser naik supaya nempel di area lengan/dada, bukan menutupi perut/pinggang */
 .ichika-oval-bubble{
-  position:absolute; top:145px; left:5px; width:250px; height:215px;
+  position:absolute; top:110px; left:0; width:248px; height:210px;
   border-radius:50%;
   display:flex; justify-content:center; align-items:center;
   padding:15px 25px; z-index:3; text-align:center;
@@ -153,11 +155,12 @@ body{
   color:#e8e4ea; font-family:'Varela Round',sans-serif; font-size:1rem; font-weight:400; line-height:1.4;
 }
 
+/* Titik-titik dibikin kelihatan (sebelumnya nyaris invisible di atas background gelap) */
 .ichika-dots-trail{
-  position:absolute; top:78px; right:115px; display:flex; gap:6px;
-  align-items:flex-end; transform:rotate(-18deg); z-index:3;
+  position:absolute; top:48px; right:108px; display:flex; gap:6px;
+  align-items:flex-end; transform:rotate(-20deg); z-index:3;
 }
-.ichika-dots-trail div{ background:rgba(20,17,24,.6); border:1px solid rgba(255,255,255,.08); border-radius:50%; }
+.ichika-dots-trail div{ background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.28); border-radius:50%; box-shadow:0 0 6px rgba(255,255,255,.08); }
 .ichika-dots-trail .dot1{ width:27px; height:27px; }
 .ichika-dots-trail .dot2{ width:17px; height:17px; margin-bottom:6px; }
 .ichika-dots-trail .dot3{ width:9px; height:9px; margin-bottom:13px; }
@@ -265,4 +268,3 @@ function toggleMobileMenu(){
 </script>
 </body>
 </html>
-

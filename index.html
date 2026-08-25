@@ -54,19 +54,19 @@
         .video-hijau { position: absolute; top: 0; left: 0; width: 100%; height: 55%; object-fit: cover; -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%); }
         .video-biru { position: absolute; top: 35%; left: 0; width: 100%; height: 65%; object-fit: cover; -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%); }
         .central-blur-blob { position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%); width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, #00d4ff 0%, #0066ff 45%, transparent 70%); filter: blur(35px); z-index: 2; pointer-events: none; }
-        
+
         .content-container { position: relative; z-index: 10; width: 100%; display: flex; flex-direction: column; align-items: center; padding: 35px 20px 20px 20px; }
         .glass-card { width: 90%; padding: 24px 20px; text-align: center; border-radius: 30px; background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(10px); border: 1.5px solid rgba(255, 255, 255, 0.4); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); z-index: 15; }
         .title-main { font-size: 2.2rem; font-weight: 800; margin-bottom: 6px; }
         .title-sub { font-size: 1.15rem; font-weight: 700; color: #22c55e; }
-        
+
         .profile-avatar-wrapper { position: relative; margin: 35px 0 25px 0; display: flex; justify-content: center; align-items: center; }
         .profile-avatar-wrapper::before { content: ''; position: absolute; width: 130px; height: 130px; border-radius: 50%; background: radial-gradient(circle, rgba(0, 212, 255, 0.9) 0%, transparent 70%); filter: blur(15px); z-index: 0; }
         .profile-avatar { position: relative; z-index: 1; width: 100px; height: 100px; border-radius: 50%; border: 4px solid #ef4444; object-fit: cover; }
         .user-name { font-size: 2.1rem; font-weight: 800; margin-bottom: 4px; font-family: Georgia, serif; }
         .user-role { font-size: 1.05rem; opacity: 0.9; margin-bottom: 4px; }
         .user-community { font-size: 1.5rem; font-weight: 800; margin-bottom: 20px; }
-        
+
         .social-container { display: flex; justify-content: center; gap: 20px; position: relative; z-index: 50; }
         .social-btn { padding: 8px; }
         .social-btn svg { width: 32px; height: 32px; fill: #ffffff; }
@@ -85,27 +85,30 @@
         .thought-bubble { align-self: flex-end; margin-top: 10px; width: 85%; background-color: #ffffff; border-radius: 40px; padding: 24px 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 2; }
         .thought-text { color: #000000; font-size: 1.15rem; font-weight: 800; font-family: Georgia, serif; line-height: 1.4; }
 
-        /* --- SEKSI ICHIKA (BAWAH) - DISESUAIKAN DENGAN REFERENSI --- */
+        /* --- SEKSI ICHIKA (BAWAH) - DISESUAIKAN DENGAN GAMBAR REFERENSI (PNG 736x1448) --- */
         .explore-section {
             width: 100%;
             background: linear-gradient(180deg, #9800ff 0%, #aa22ff 40%, #8b44ff 70%, #5070ff 100%);
-            display: flex; flex-direction: column; align-items: center; padding: 20px 20px 70px 20px;
+            display: flex; flex-direction: column; align-items: center; padding: 30px 20px 60px 20px;
             position: relative; z-index: 20;
         }
 
+        /* Tinggi scene disesuaikan agar badan penuh Ichika (rasio 736:1448 ≈ 1:1.97) muat tanpa kepotong/gepeng */
         .ichika-scene {
-            position: relative; width: 100%; height: 500px; margin-top: 10px;
+            position: relative; width: 100%; height: 560px; margin-top: 10px;
         }
 
-        /* Gambar Ichika: Posisi Full Body & Miring ke Kanan sesuai Referensi */
+        /* Gambar Ichika: full body, sedikit miring ke kanan, rasio asli dijaga pakai aspect-ratio supaya tidak distorsi */
         .ichika-img {
-            position: absolute; top: -10px; right: -30px; width: 240px; height: auto;
-            object-fit: contain; transform: rotate(10deg); z-index: 2; pointer-events: none;
+            position: absolute; top: 0; right: -18px;
+            width: 260px; height: auto; aspect-ratio: 736 / 1448;
+            object-fit: contain; transform: rotate(7deg); transform-origin: top center;
+            z-index: 2; pointer-events: none;
         }
 
-        /* Gelembung Pikiran Bulat/Oval di Kiri Bawah Ichika */
+        /* Gelembung Pikiran Bulat/Oval, disejajarkan dengan area wajah/tangan Ichika */
         .ichika-oval-bubble {
-            position: absolute; top: 130px; left: 10px; width: 245px; height: 210px;
+            position: absolute; top: 145px; left: 5px; width: 250px; height: 215px;
             background-color: #ffffff; border-radius: 50%;
             display: flex; justify-content: center; align-items: center;
             padding: 15px 25px; box-shadow: 0 5px 25px rgba(0,0,0,0.15); z-index: 3; text-align: center;
@@ -116,18 +119,18 @@
             font-family: 'Varela Round', 'Comic Sans MS', sans-serif;
         }
 
-        /* 3 Titik Penghubung Mengarah ke Kepala Ichika */
+        /* 3 Titik Penghubung dari gelembung mengarah naik ke dagu/tangan Ichika, mengecil mendekati wajah */
         .ichika-dots-trail {
-            position: absolute; top: 110px; right: 120px; display: flex; gap: 6px;
-            align-items: flex-end; transform: rotate(-15deg); z-index: 3;
+            position: absolute; top: 78px; right: 115px; display: flex; gap: 6px;
+            align-items: flex-end; transform: rotate(-18deg); z-index: 3;
         }
-        .ichika-dots-trail .dot1 { width: 30px; height: 30px; background-color: #ffffff; border-radius: 50%; }
-        .ichika-dots-trail .dot2 { width: 18px; height: 18px; background-color: #ffffff; border-radius: 50%; margin-bottom: 5px; }
-        .ichika-dots-trail .dot3 { width: 10px; height: 10px; background-color: #ffffff; border-radius: 50%; margin-bottom: 12px; }
+        .ichika-dots-trail .dot1 { width: 28px; height: 28px; background-color: #ffffff; border-radius: 50%; }
+        .ichika-dots-trail .dot2 { width: 18px; height: 18px; background-color: #ffffff; border-radius: 50%; margin-bottom: 6px; }
+        .ichika-dots-trail .dot3 { width: 10px; height: 10px; background-color: #ffffff; border-radius: 50%; margin-bottom: 13px; }
 
         /* Tombol Pill Ungu Keputihan */
         .explore-btn {
-            display: inline-block; margin-top: -20px;
+            display: inline-block; margin-top: 10px;
             background: rgba(255, 255, 255, 0.35); color: #ffffff;
             font-size: 1.4rem; font-weight: 800; padding: 12px 35px; border-radius: 50px;
             font-family: 'Varela Round', 'Comic Sans MS', sans-serif;
@@ -212,7 +215,7 @@
             </div>
         </section>
 
-        <!-- SEKSI ICHIKA (POSISI DIPERBAIKI) -->
+        <!-- SEKSI ICHIKA (POSISI DIPERBAIKI SESUAI REFERENSI) -->
         <section class="explore-section">
             <div class="ichika-scene">
                 <!-- Gelembung Teks Oval -->
@@ -227,7 +230,7 @@
                     <div class="dot3"></div>
                 </div>
 
-                <!-- Gambar Ichika (Full Badan Kelihatan & Pas) -->
+                <!-- Gambar Ichika (Full Badan, rasio 736x1448 dijaga) -->
                 <img src="ihcika.png" alt="Ichika" class="ichika-img">
             </div>
 

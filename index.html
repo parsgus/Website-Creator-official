@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ΣΛ Creator - Official Website</title>
     <style>
-        /* Import font gaya santai untuk Ichika */
         @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
         * {
@@ -26,7 +25,7 @@
             position: relative; background: #000000; box-shadow: 0 0 30px rgba(0,0,0,0.9); overflow: hidden;
         }
 
-        /* --- TOMBOL MENU GARIS DUA (SUPER Z-INDEX) --- */
+        /* --- TOMBOL MENU GARIS DUA --- */
         .menu-btn-glass {
             position: fixed; top: 20px; right: 20px; z-index: 9999999;
             width: 48px; height: 42px; border-radius: 12px;
@@ -72,7 +71,7 @@
         .social-btn { padding: 8px; }
         .social-btn svg { width: 32px; height: 32px; fill: #ffffff; }
 
-        /* --- SEKSI UNGU (Tengah) --- */
+        /* --- SEKSI UNGU (TENGAH) --- */
         .purple-section { width: 100%; background: linear-gradient(180deg, #000000 0%, #230038 25%, #64008a 60%, #9800ff 100%); display: flex; flex-direction: column; align-items: center; padding: 40px 20px 60px 20px; z-index: 20; margin-top: -2px; }
         .question-card { width: 90%; padding: 22px 18px; border-radius: 26px; background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(12px); border: 1.5px solid rgba(255, 255, 255, 0.4); text-align: center; margin-bottom: 30px; }
         .question-text { font-size: 1.3rem; font-weight: 800; }
@@ -86,30 +85,30 @@
         .thought-bubble { align-self: flex-end; margin-top: 10px; width: 85%; background-color: #ffffff; border-radius: 40px; padding: 24px 22px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 2; }
         .thought-text { color: #000000; font-size: 1.15rem; font-weight: 800; font-family: Georgia, serif; line-height: 1.4; }
 
-        /* --- SEKSI ICHIKA (BAWAH) - PERSIS GAMBAR 3 --- */
+        /* --- SEKSI ICHIKA (BAWAH) - DISESUAIKAN DENGAN REFERENSI --- */
         .explore-section {
             width: 100%;
             background: linear-gradient(180deg, #9800ff 0%, #aa22ff 40%, #8b44ff 70%, #5070ff 100%);
-            display: flex; flex-direction: column; align-items: center; padding: 20px 20px 90px 20px;
+            display: flex; flex-direction: column; align-items: center; padding: 20px 20px 70px 20px;
             position: relative; z-index: 20;
         }
 
         .ichika-scene {
-            position: relative; width: 100%; height: 400px; margin-top: 10px;
+            position: relative; width: 100%; height: 500px; margin-top: 10px;
         }
 
-        /* Ichika Miring & Nempel Kanan */
+        /* Gambar Ichika: Posisi Full Body & Miring ke Kanan sesuai Referensi */
         .ichika-img {
-            position: absolute; top: 10px; right: -50px; width: 230px; height: auto;
-            object-fit: contain; transform: rotate(12deg); z-index: 2; pointer-events: none;
+            position: absolute; top: -10px; right: -30px; width: 240px; height: auto;
+            object-fit: contain; transform: rotate(10deg); z-index: 2; pointer-events: none;
         }
 
-        /* Bubble Oval Murni */
+        /* Gelembung Pikiran Bulat/Oval di Kiri Bawah Ichika */
         .ichika-oval-bubble {
-            position: absolute; top: 70px; left: 5px; width: 240px; height: 190px;
-            background-color: #ffffff; border-radius: 50%; /* Membuat Oval */
+            position: absolute; top: 130px; left: 10px; width: 245px; height: 210px;
+            background-color: #ffffff; border-radius: 50%;
             display: flex; justify-content: center; align-items: center;
-            padding: 10px 25px; box-shadow: 0 5px 25px rgba(0,0,0,0.15); z-index: 3; text-align: center;
+            padding: 15px 25px; box-shadow: 0 5px 25px rgba(0,0,0,0.15); z-index: 3; text-align: center;
         }
 
         .ichika-oval-bubble p {
@@ -117,18 +116,18 @@
             font-family: 'Varela Round', 'Comic Sans MS', sans-serif;
         }
 
-        /* 3 Titik Penghubung Oval */
+        /* 3 Titik Penghubung Mengarah ke Kepala Ichika */
         .ichika-dots-trail {
-            position: absolute; top: 55px; right: 75px; display: flex; gap: 5px;
-            align-items: flex-end; transform: rotate(-12deg); z-index: 3;
+            position: absolute; top: 110px; right: 120px; display: flex; gap: 6px;
+            align-items: flex-end; transform: rotate(-15deg); z-index: 3;
         }
-        .ichika-dots-trail .dot1 { width: 32px; height: 32px; background-color: #ffffff; border-radius: 50%; }
-        .ichika-dots-trail .dot2 { width: 20px; height: 20px; background-color: #ffffff; border-radius: 50%; margin-bottom: 6px; }
-        .ichika-dots-trail .dot3 { width: 12px; height: 12px; background-color: #ffffff; border-radius: 50%; margin-bottom: 15px; }
+        .ichika-dots-trail .dot1 { width: 30px; height: 30px; background-color: #ffffff; border-radius: 50%; }
+        .ichika-dots-trail .dot2 { width: 18px; height: 18px; background-color: #ffffff; border-radius: 50%; margin-bottom: 5px; }
+        .ichika-dots-trail .dot3 { width: 10px; height: 10px; background-color: #ffffff; border-radius: 50%; margin-bottom: 12px; }
 
         /* Tombol Pill Ungu Keputihan */
         .explore-btn {
-            display: inline-block; margin-top: 10px;
+            display: inline-block; margin-top: -20px;
             background: rgba(255, 255, 255, 0.35); color: #ffffff;
             font-size: 1.4rem; font-weight: 800; padding: 12px 35px; border-radius: 50px;
             font-family: 'Varela Round', 'Comic Sans MS', sans-serif;
@@ -140,7 +139,7 @@
 <body>
 
     <div class="wrapper">
-        <!-- TOMBOL MENU: Pakai onclick Inline agar 100% PASTI bekerja di HP -->
+        <!-- TOMBOL MENU -->
         <div class="menu-btn-glass" id="menuBtn" onclick="toggleMobileMenu()">
             <span></span>
             <span></span>
@@ -152,11 +151,10 @@
                 <a href="information.html" class="menu-pill">Information</a>
                 <a href="https://parsgus.my.id/" class="menu-pill">Page Developer</a>
             </div>
-            <!-- Klik area gelap bawah untuk menutup menu -->
             <div class="overlay-bottom" onclick="toggleMobileMenu()"></div>
         </div>
 
-        <!-- HERO SECTION (Dengan Video Aslimu) -->
+        <!-- HERO SECTION -->
         <section class="hero-section">
             <div class="video-bg-layer">
                 <video class="video-hijau" autoplay loop muted playsinline webkit-playsinline>
@@ -195,7 +193,7 @@
             </div>
         </section>
 
-        <!-- SEKSI UNGU (TENGAH) -->
+        <!-- SEKSI UNGU -->
         <section class="purple-section" id="purpleSection">
             <div class="question-card">
                 <p class="question-text">Apasih ΣΛ Creator itu dan apa tujuannya sih?</p>
@@ -214,38 +212,35 @@
             </div>
         </section>
 
-        <!-- SEKSI ICHIKA (BAWAH) -->
+        <!-- SEKSI ICHIKA (POSISI DIPERBAIKI) -->
         <section class="explore-section">
             <div class="ichika-scene">
-                <!-- Gelembung Teks Oval Murni -->
+                <!-- Gelembung Teks Oval -->
                 <div class="ichika-oval-bubble">
                     <p>"Jadi yah di jadiin marga sekalian buat nampung yang bener bener mau belajar jadi editor"</p>
                 </div>
 
-                <!-- 3 Titik -->
+                <!-- 3 Titik Penghubung -->
                 <div class="ichika-dots-trail">
                     <div class="dot1"></div>
                     <div class="dot2"></div>
                     <div class="dot3"></div>
                 </div>
 
-                <!-- Gambar Ichika (Menggunakan nama file aslimu) -->
+                <!-- Gambar Ichika (Full Badan Kelihatan & Pas) -->
                 <img src="ihcika.png" alt="Ichika" class="ichika-img">
             </div>
 
-            <!-- Tombol Jelajahi Pill -->
+            <!-- Tombol Jelajahi -->
             <a href="#purpleSection" class="explore-btn">Yuk jelajahi</a>
         </section>
     </div>
 
-    <!-- SCRIPT SUPER SIMPEL (ANTI GAGAL) -->
+    <!-- SCRIPT MENU -->
     <script>
-        // Fungsi ini dipanggil langsung saat tombol diklik (onclick)
         function toggleMobileMenu() {
             var menu = document.getElementById('overlayMenu');
             var btn = document.getElementById('menuBtn');
-            
-            // Tambah/Hapus class 'active'
             menu.classList.toggle('active');
             btn.classList.toggle('active');
         }
